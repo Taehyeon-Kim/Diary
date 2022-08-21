@@ -13,6 +13,8 @@ open class BaseView: UIView {
         super.init(frame: frame)
         Logger.log(type(of: self), .info, "init")
         
+        configureAttributes()
+        configureLayout()
     }
     
     @available(*, unavailable)
