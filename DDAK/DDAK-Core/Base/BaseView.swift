@@ -21,6 +21,6 @@ open class BaseView: UIView {
         Logger.log(type(of: self), .info, "required init")
     }
     
-    func configureAttributes() {}
-    func configureLayout() {}
+    open func configureAttributes() {}
+    open func configureLayout() {}
 }

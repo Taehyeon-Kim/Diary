@@ -28,6 +28,6 @@ open class BaseViewController: UIViewController {
         Logger.log(type(of: self), .info, "deinit")
     }
 
-    func configureAttributes() {}
-    func configureLayout() {}
+    open func configureAttributes() {}
+    open func configureLayout() {}
 }
