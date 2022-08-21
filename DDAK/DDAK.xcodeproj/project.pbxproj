@@ -16,6 +16,7 @@
 		BD14BCE828B284AB00D8C29C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCE728B284AB00D8C29C /* BaseViewController.swift */; };
 		BD14BCEA28B2852A00D8C29C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCE928B2852A00D8C29C /* Logger.swift */; };
 		BD14BCED28B2854300D8C29C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCEC28B2854300D8C29C /* String+.swift */; };
+		BD14BCF028B289DD00D8C29C /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCEF28B289DD00D8C29C /* UIView+.swift */; };
 		BDCEFB9C28B13BB100EE0439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9B28B13BB100EE0439 /* AppDelegate.swift */; };
 		BDCEFB9E28B13BB100EE0439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9D28B13BB100EE0439 /* SceneDelegate.swift */; };
 		BDCEFBA028B13BB100EE0439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9F28B13BB100EE0439 /* ViewController.swift */; };
@@ -60,6 +61,7 @@
 		BD14BCE728B284AB00D8C29C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BD14BCE928B2852A00D8C29C /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		BD14BCEC28B2854300D8C29C /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		BD14BCEF28B289DD00D8C29C /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		BDCEFB9828B13BB100EE0439 /* DDAK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDAK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCEFB9B28B13BB100EE0439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDCEFB9D28B13BB100EE0439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		BD14BCD928B2847A00D8C29C /* DDAK-Core */ = {
 			isa = PBXGroup;
 			children = (
+				BD14BCEE28B289D300D8C29C /* UIKit */,
 				BD14BCEB28B2853B00D8C29C /* Foundation */,
 				BD14BCE428B2848400D8C29C /* Base */,
 				BD14BCDA28B2847A00D8C29C /* DDAK_Core.h */,
@@ -135,6 +138,14 @@
 				BD14BCEC28B2854300D8C29C /* String+.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		BD14BCEE28B289D300D8C29C /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				BD14BCEF28B289DD00D8C29C /* UIView+.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		BDCEFB8F28B13BB100EE0439 = {
@@ -330,6 +341,7 @@
 				BD14BCEA28B2852A00D8C29C /* Logger.swift in Sources */,
 				BD14BCED28B2854300D8C29C /* String+.swift in Sources */,
 				BD14BCE828B284AB00D8C29C /* BaseViewController.swift in Sources */,
+				BD14BCF028B289DD00D8C29C /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
