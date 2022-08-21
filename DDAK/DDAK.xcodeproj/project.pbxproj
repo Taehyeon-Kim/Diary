@@ -26,6 +26,7 @@
 		BD14BD0728B29E0200D8C29C /* DDAK_Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD14BD0028B29E0200D8C29C /* DDAK_Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD14BD0D28B29ECA00D8C29C /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BD0C28B29ECA00D8C29C /* NetworkEnvironment.swift */; };
 		BD14BD1128B2A01400D8C29C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BD1028B2A01400D8C29C /* EndPoint.swift */; };
+		BD14BD1428B2A36500D8C29C /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BD1328B2A36500D8C29C /* APIKeys.swift */; };
 		BDCEFB9C28B13BB100EE0439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9B28B13BB100EE0439 /* AppDelegate.swift */; };
 		BDCEFB9E28B13BB100EE0439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9D28B13BB100EE0439 /* SceneDelegate.swift */; };
 		BDCEFBA028B13BB100EE0439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9F28B13BB100EE0439 /* ViewController.swift */; };
@@ -87,6 +88,7 @@
 		BD14BD0228B29E0200D8C29C /* DDAK_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAK_Network.h; sourceTree = "<group>"; };
 		BD14BD0C28B29ECA00D8C29C /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
 		BD14BD1028B2A01400D8C29C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		BD14BD1328B2A36500D8C29C /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		BDCEFB9828B13BB100EE0439 /* DDAK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDAK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCEFB9B28B13BB100EE0439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDCEFB9D28B13BB100EE0439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		BD14BD0128B29E0200D8C29C /* DDAK-Network */ = {
 			isa = PBXGroup;
 			children = (
+				BD14BD1228B2A34D00D8C29C /* Secrets */,
 				BD14BD0B28B29EA300D8C29C /* Foundation */,
 				BD14BD0228B29E0200D8C29C /* DDAK_Network.h */,
 			);
@@ -209,6 +212,14 @@
 				BD14BD1028B2A01400D8C29C /* EndPoint.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		BD14BD1228B2A34D00D8C29C /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				BD14BD1328B2A36500D8C29C /* APIKeys.swift */,
+			);
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 		BDCEFB8F28B13BB100EE0439 = {
@@ -456,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD14BD1428B2A36500D8C29C /* APIKeys.swift in Sources */,
 				BD14BD1128B2A01400D8C29C /* EndPoint.swift in Sources */,
 				BD14BD0D28B29ECA00D8C29C /* NetworkEnvironment.swift in Sources */,
 			);

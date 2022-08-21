@@ -14,9 +14,10 @@ enum EndPoint {
     var requestURL: String {
         switch self {
         case .search(let query, let page):
-            return NetworkEnvironment.makeEndPointString("/search/photos?query=\(query)&page=\(page)")
+            return NetworkEnvironment.makeEndPointString("/search/photos?client_id=\(APIKeys.unsplash)&query=\(query)&page=\(page)")
+            
         case .random(let count):
-            return NetworkEnvironment.makeEndPointString("/photos/random?count=\(count)")
+            return NetworkEnvironment.makeEndPointString("/photos/random?client_id=\(APIKeys.unsplash)&count=\(count)")
         }
     }
 }
