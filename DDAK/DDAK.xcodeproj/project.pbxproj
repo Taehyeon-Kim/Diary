@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD14BCD028B283A500D8C29C /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */; };
+		BD14BCD228B2842100D8C29C /* PhotoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */; };
 		BDCEFB9C28B13BB100EE0439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9B28B13BB100EE0439 /* AppDelegate.swift */; };
 		BDCEFB9E28B13BB100EE0439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9D28B13BB100EE0439 /* SceneDelegate.swift */; };
 		BDCEFBA028B13BB100EE0439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9F28B13BB100EE0439 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewController.swift; sourceTree = "<group>"; };
+		BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchView.swift; sourceTree = "<group>"; };
 		BDCEFB9828B13BB100EE0439 /* DDAK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDAK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCEFB9B28B13BB100EE0439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDCEFB9D28B13BB100EE0439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD14BCCB28B2834600D8C29C /* Photo Search */ = {
+			isa = PBXGroup;
+			children = (
+				BD14BCCE28B2838700D8C29C /* View */,
+				BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */,
+			);
+			path = "Photo Search";
+			sourceTree = "<group>";
+		};
+		BD14BCCE28B2838700D8C29C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BDCEFB8F28B13BB100EE0439 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				BDCEFB9F28B13BB100EE0439 /* ViewController.swift */,
+				BD14BCCB28B2834600D8C29C /* Photo Search */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -187,8 +209,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDCEFBA028B13BB100EE0439 /* ViewController.swift in Sources */,
+				BD14BCD028B283A500D8C29C /* PhotoSearchViewController.swift in Sources */,
 				BDCEFB9C28B13BB100EE0439 /* AppDelegate.swift in Sources */,
 				BDCEFB9E28B13BB100EE0439 /* SceneDelegate.swift in Sources */,
+				BD14BCD228B2842100D8C29C /* PhotoSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
