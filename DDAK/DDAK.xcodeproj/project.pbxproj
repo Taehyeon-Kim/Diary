@@ -21,6 +21,11 @@
 		BD14BCF528B28DCF00D8C29C /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCF428B28DCF00D8C29C /* Reusable.swift */; };
 		BD14BCF728B28E4F00D8C29C /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCF628B28E4F00D8C29C /* BaseCollectionViewCell.swift */; };
 		BD14BCF928B28E5600D8C29C /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCF828B28E5600D8C29C /* BaseTableViewCell.swift */; };
+		BD14BD0328B29E0200D8C29C /* DDAK_Network.h in Headers */ = {isa = PBXBuildFile; fileRef = BD14BD0228B29E0200D8C29C /* DDAK_Network.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD14BD0628B29E0200D8C29C /* DDAK_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD14BD0028B29E0200D8C29C /* DDAK_Network.framework */; };
+		BD14BD0728B29E0200D8C29C /* DDAK_Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD14BD0028B29E0200D8C29C /* DDAK_Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BD14BD0D28B29ECA00D8C29C /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BD0C28B29ECA00D8C29C /* NetworkEnvironment.swift */; };
+		BD14BD1128B2A01400D8C29C /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BD1028B2A01400D8C29C /* EndPoint.swift */; };
 		BDCEFB9C28B13BB100EE0439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9B28B13BB100EE0439 /* AppDelegate.swift */; };
 		BDCEFB9E28B13BB100EE0439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9D28B13BB100EE0439 /* SceneDelegate.swift */; };
 		BDCEFBA028B13BB100EE0439 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCEFB9F28B13BB100EE0439 /* ViewController.swift */; };
@@ -40,6 +45,13 @@
 			remoteGlobalIDString = BD14BCD728B2847A00D8C29C;
 			remoteInfo = "DDAK-Core";
 		};
+		BD14BD0428B29E0200D8C29C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDCEFB9028B13BB100EE0439 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD14BCFF28B29E0200D8C29C;
+			remoteInfo = "DDAK-Network";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +62,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				BD14BCE028B2847A00D8C29C /* DDAK_Core.framework in Embed Frameworks */,
+				BD14BD0728B29E0200D8C29C /* DDAK_Network.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +83,10 @@
 		BD14BCF428B28DCF00D8C29C /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		BD14BCF628B28E4F00D8C29C /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD14BCF828B28E5600D8C29C /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		BD14BD0028B29E0200D8C29C /* DDAK_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DDAK_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD14BD0228B29E0200D8C29C /* DDAK_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDAK_Network.h; sourceTree = "<group>"; };
+		BD14BD0C28B29ECA00D8C29C /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
+		BD14BD1028B2A01400D8C29C /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		BDCEFB9828B13BB100EE0439 /* DDAK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DDAK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCEFB9B28B13BB100EE0439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDCEFB9D28B13BB100EE0439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +104,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BD14BCFD28B29E0200D8C29C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDCEFB9528B13BB100EE0439 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -96,6 +120,7 @@
 				BDCEFBBB28B1401F00EE0439 /* ReactorKit in Frameworks */,
 				BDCEFBBE28B140E400EE0439 /* RxCocoa in Frameworks */,
 				BDCEFBB828B1400F00EE0439 /* Then in Frameworks */,
+				BD14BD0628B29E0200D8C29C /* DDAK_Network.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,11 +193,30 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		BD14BD0128B29E0200D8C29C /* DDAK-Network */ = {
+			isa = PBXGroup;
+			children = (
+				BD14BD0B28B29EA300D8C29C /* Foundation */,
+				BD14BD0228B29E0200D8C29C /* DDAK_Network.h */,
+			);
+			path = "DDAK-Network";
+			sourceTree = "<group>";
+		};
+		BD14BD0B28B29EA300D8C29C /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				BD14BD0C28B29ECA00D8C29C /* NetworkEnvironment.swift */,
+				BD14BD1028B2A01400D8C29C /* EndPoint.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 		BDCEFB8F28B13BB100EE0439 = {
 			isa = PBXGroup;
 			children = (
 				BDCEFB9A28B13BB100EE0439 /* DDAK */,
 				BD14BCD928B2847A00D8C29C /* DDAK-Core */,
+				BD14BD0128B29E0200D8C29C /* DDAK-Network */,
 				BDCEFB9928B13BB100EE0439 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -182,6 +226,7 @@
 			children = (
 				BDCEFB9828B13BB100EE0439 /* DDAK.app */,
 				BD14BCD828B2847A00D8C29C /* DDAK_Core.framework */,
+				BD14BD0028B29E0200D8C29C /* DDAK_Network.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,6 +288,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BD14BCFB28B29E0200D8C29C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD14BD0328B29E0200D8C29C /* DDAK_Network.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +317,24 @@
 			productReference = BD14BCD828B2847A00D8C29C /* DDAK_Core.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		BD14BCFF28B29E0200D8C29C /* DDAK-Network */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD14BD0A28B29E0200D8C29C /* Build configuration list for PBXNativeTarget "DDAK-Network" */;
+			buildPhases = (
+				BD14BCFB28B29E0200D8C29C /* Headers */,
+				BD14BCFC28B29E0200D8C29C /* Sources */,
+				BD14BCFD28B29E0200D8C29C /* Frameworks */,
+				BD14BCFE28B29E0200D8C29C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DDAK-Network";
+			productName = "DDAK-Network";
+			productReference = BD14BD0028B29E0200D8C29C /* DDAK_Network.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		BDCEFB9728B13BB100EE0439 /* DDAK */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDCEFBAC28B13BB300EE0439 /* Build configuration list for PBXNativeTarget "DDAK" */;
@@ -277,6 +348,7 @@
 			);
 			dependencies = (
 				BD14BCDD28B2847A00D8C29C /* PBXTargetDependency */,
+				BD14BD0528B29E0200D8C29C /* PBXTargetDependency */,
 			);
 			name = DDAK;
 			packageProductDependencies = (
@@ -300,6 +372,10 @@
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					BD14BCD728B2847A00D8C29C = {
+						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
+					};
+					BD14BCFF28B29E0200D8C29C = {
 						CreatedOnToolsVersion = 13.4.1;
 						LastSwiftMigration = 1340;
 					};
@@ -329,12 +405,20 @@
 			targets = (
 				BDCEFB9728B13BB100EE0439 /* DDAK */,
 				BD14BCD728B2847A00D8C29C /* DDAK-Core */,
+				BD14BCFF28B29E0200D8C29C /* DDAK-Network */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BD14BCD628B2847A00D8C29C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD14BCFE28B29E0200D8C29C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -368,6 +452,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BD14BCFC28B29E0200D8C29C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD14BD1128B2A01400D8C29C /* EndPoint.swift in Sources */,
+				BD14BD0D28B29ECA00D8C29C /* NetworkEnvironment.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDCEFB9428B13BB100EE0439 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +481,11 @@
 			isa = PBXTargetDependency;
 			target = BD14BCD728B2847A00D8C29C /* DDAK-Core */;
 			targetProxy = BD14BCDC28B2847A00D8C29C /* PBXContainerItemProxy */;
+		};
+		BD14BD0528B29E0200D8C29C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD14BCFF28B29E0200D8C29C /* DDAK-Network */;
+			targetProxy = BD14BD0428B29E0200D8C29C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -459,6 +557,73 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.taekki.DDAK-Core";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BD14BD0828B29E0200D8C29C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W7P3R7ZL78;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.taekki.DDAK-Network";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BD14BD0928B29E0200D8C29C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W7P3R7ZL78;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.taekki.DDAK-Network";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -650,6 +815,15 @@
 			buildConfigurations = (
 				BD14BCE228B2847A00D8C29C /* Debug */,
 				BD14BCE328B2847A00D8C29C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD14BD0A28B29E0200D8C29C /* Build configuration list for PBXNativeTarget "DDAK-Network" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD14BD0828B29E0200D8C29C /* Debug */,
+				BD14BD0928B29E0200D8C29C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
