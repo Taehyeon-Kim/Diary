@@ -7,10 +7,11 @@
 
 import UIKit
 
+import DDAK_Core
 import SnapKit
 import Then
 
-final class PhotoSearchViewController: UIViewController {
+final class PhotoSearchViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

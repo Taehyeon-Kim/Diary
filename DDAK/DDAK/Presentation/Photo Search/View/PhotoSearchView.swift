@@ -7,9 +7,10 @@
 
 import UIKit
 
+import DDAK_Core
 import SnapKit
 import Then
 
-final class PhotoSearchView: UIView {
+final class PhotoSearchView: BaseView {
     
 }
