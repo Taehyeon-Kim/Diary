@@ -10,6 +10,9 @@
 		BD117CCE28B3042400A103FA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BD117CCD28B3042400A103FA /* Alamofire */; };
 		BD117CD128B3043200A103FA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BD117CD028B3043200A103FA /* Kingfisher */; };
 		BD117CD428B304A400A103FA /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = BD117CD328B304A400A103FA /* SwiftyJSON */; };
+		BD117CD728B3056000A103FA /* PhotoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD117CD628B3056000A103FA /* PhotoAPIManager.swift */; };
+		BD117CDC28B3072E00A103FA /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = BD117CDB28B3072E00A103FA /* SwiftyJSON */; };
+		BD117CDE28B3074800A103FA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BD117CDD28B3074800A103FA /* Alamofire */; };
 		BD14BCD028B283A500D8C29C /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */; };
 		BD14BCD228B2842100D8C29C /* PhotoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */; };
 		BD14BCDB28B2847A00D8C29C /* DDAK_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BD14BCDA28B2847A00D8C29C /* DDAK_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -74,6 +77,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BD117CD628B3056000A103FA /* PhotoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAPIManager.swift; sourceTree = "<group>"; };
 		BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewController.swift; sourceTree = "<group>"; };
 		BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchView.swift; sourceTree = "<group>"; };
 		BD14BCD828B2847A00D8C29C /* DDAK_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DDAK_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD117CDC28B3072E00A103FA /* SwiftyJSON in Frameworks */,
+				BD117CDE28B3074800A103FA /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +141,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD117CD528B3053300A103FA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BD117CD628B3056000A103FA /* PhotoAPIManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		BD117CD828B3072400A103FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BD14BCCB28B2834600D8C29C /* Photo Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +225,7 @@
 		BD14BD0128B29E0200D8C29C /* DDAK-Network */ = {
 			isa = PBXGroup;
 			children = (
+				BD117CD528B3053300A103FA /* Manager */,
 				BD14BD1228B2A34D00D8C29C /* Secrets */,
 				BD14BD0B28B29EA300D8C29C /* Foundation */,
 				BD14BD0228B29E0200D8C29C /* DDAK_Network.h */,
@@ -235,6 +257,7 @@
 				BD14BCD928B2847A00D8C29C /* DDAK-Core */,
 				BD14BD0128B29E0200D8C29C /* DDAK-Network */,
 				BDCEFB9928B13BB100EE0439 /* Products */,
+				BD117CD828B3072400A103FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -348,6 +371,10 @@
 			dependencies = (
 			);
 			name = "DDAK-Network";
+			packageProductDependencies = (
+				BD117CDB28B3072E00A103FA /* SwiftyJSON */,
+				BD117CDD28B3074800A103FA /* Alamofire */,
+			);
 			productName = "DDAK-Network";
 			productReference = BD14BD0028B29E0200D8C29C /* DDAK_Network.framework */;
 			productType = "com.apple.product-type.framework";
@@ -482,6 +509,7 @@
 				BD14BD1428B2A36500D8C29C /* APIKeys.swift in Sources */,
 				BD14BD1128B2A01400D8C29C /* EndPoint.swift in Sources */,
 				BD14BD0D28B29ECA00D8C29C /* NetworkEnvironment.swift in Sources */,
+				BD117CD728B3056000A103FA /* PhotoAPIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,6 +974,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD117CD228B304A400A103FA /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		BD117CDB28B3072E00A103FA /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD117CD228B304A400A103FA /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		BD117CDD28B3074800A103FA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD117CCC28B3042400A103FA /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		BDCEFBB428B1400200EE0439 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
