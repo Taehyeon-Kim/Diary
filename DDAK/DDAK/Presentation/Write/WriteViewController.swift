@@ -60,6 +60,7 @@ extension WriteViewController {
         try! realm.write {
             realm.add(diary)
             Logger.log(diary)
+            self.presentAlert(title: "📩 성공적으로 저장되었어요.")
         }
     }
 }
