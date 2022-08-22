@@ -17,6 +17,7 @@ final class PhotoSearchViewController: BaseViewController {
     private let photoSearchView = PhotoSearchView()
     
     private var imageStrings: [String] = []
+    var selectionCompletionHandler: ((String) -> ())?
     
     override func loadView() {
         self.view = photoSearchView
@@ -75,5 +76,10 @@ extension PhotoSearchViewController: UICollectionViewDelegate, UICollectionViewD
         }
         cell.configure(withImage: imageStrings[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectionCompletionHandler?(imageStrings[indexPath.row])
+        dismiss(animated: true)
     }
 }

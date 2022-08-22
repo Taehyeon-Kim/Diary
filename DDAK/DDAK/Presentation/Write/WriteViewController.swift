@@ -18,6 +18,7 @@ final class WriteViewController: BaseViewController {
     private let writeView = WriteView()
     
     private let realm = try! Realm()
+    private var photoURLString: String?
     
     override func loadView() {
         self.view = writeView
@@ -38,6 +39,10 @@ extension WriteViewController {
     
     @objc func selectPhotoButtonTapped() {
         let photoSearchViewController = PhotoSearchViewController()
+        photoSearchViewController.selectionCompletionHandler = { [weak self] photoURLString in
+            self?.photoURLString = photoURLString
+            self?.writeView.photoImageView.kf.setImage(with: URL(string: photoURLString))
+        }
         present(photoSearchViewController, animated: true)
     }
     
@@ -46,7 +51,7 @@ extension WriteViewController {
         guard let title = writeView.titleTextField.text else { return }
         
         let diary = Diary(
-            photoURLString: nil,
+            photoURLString: photoURLString,
             diaryTitle: title,
             diaryContent: writeView.contentTextView.text,
             diaryDate: Date()
