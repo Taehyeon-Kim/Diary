@@ -15,6 +15,8 @@
 		BD117CDE28B3074800A103FA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BD117CDD28B3074800A103FA /* Alamofire */; };
 		BD117D0828B3C83900A103FA /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD117D0728B3C83900A103FA /* WriteView.swift */; };
 		BD117D0A28B3C84000A103FA /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD117D0928B3C84000A103FA /* WriteViewController.swift */; };
+		BD117D0D28B3EE8800A103FA /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD117D0C28B3EE8800A103FA /* Realm */; };
+		BD117D0F28B3EE8800A103FA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD117D0E28B3EE8800A103FA /* RealmSwift */; };
 		BD14BCD028B283A500D8C29C /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */; };
 		BD14BCD228B2842100D8C29C /* PhotoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */; };
 		BD14BCDB28B2847A00D8C29C /* DDAK_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BD14BCDA28B2847A00D8C29C /* DDAK_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -134,9 +136,11 @@
 				BDCEFBB528B1400200EE0439 /* SnapKit in Frameworks */,
 				BD117CCE28B3042400A103FA /* Alamofire in Frameworks */,
 				BD14BCDE28B2847A00D8C29C /* DDAK_Core.framework in Frameworks */,
+				BD117D0D28B3EE8800A103FA /* Realm in Frameworks */,
 				BDCEFBBB28B1401F00EE0439 /* ReactorKit in Frameworks */,
 				BD117CD128B3043200A103FA /* Kingfisher in Frameworks */,
 				BDCEFBBE28B140E400EE0439 /* RxCocoa in Frameworks */,
+				BD117D0F28B3EE8800A103FA /* RealmSwift in Frameworks */,
 				BDCEFBB828B1400F00EE0439 /* Then in Frameworks */,
 				BD14BD0628B29E0200D8C29C /* DDAK_Network.framework in Frameworks */,
 			);
@@ -425,6 +429,8 @@
 				BD117CCD28B3042400A103FA /* Alamofire */,
 				BD117CD028B3043200A103FA /* Kingfisher */,
 				BD117CD328B304A400A103FA /* SwiftyJSON */,
+				BD117D0C28B3EE8800A103FA /* Realm */,
+				BD117D0E28B3EE8800A103FA /* RealmSwift */,
 			);
 			productName = DDAK;
 			productReference = BDCEFB9828B13BB100EE0439 /* DDAK.app */;
@@ -470,6 +476,7 @@
 				BD117CCC28B3042400A103FA /* XCRemoteSwiftPackageReference "Alamofire" */,
 				BD117CCF28B3043200A103FA /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				BD117CD228B304A400A103FA /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				BD117D0B28B3EE8800A103FA /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BDCEFB9928B13BB100EE0439 /* Products */;
 			projectDirPath = "";
@@ -949,6 +956,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		BD117D0B28B3EE8800A103FA /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		BDCEFBB328B1400200EE0439 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1008,6 +1023,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BD117CCC28B3042400A103FA /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		BD117D0C28B3EE8800A103FA /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD117D0B28B3EE8800A103FA /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		BD117D0E28B3EE8800A103FA /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD117D0B28B3EE8800A103FA /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		BDCEFBB428B1400200EE0439 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
