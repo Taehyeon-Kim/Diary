@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD117CCE28B3042400A103FA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BD117CCD28B3042400A103FA /* Alamofire */; };
+		BD117CD128B3043200A103FA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BD117CD028B3043200A103FA /* Kingfisher */; };
+		BD117CD428B304A400A103FA /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = BD117CD328B304A400A103FA /* SwiftyJSON */; };
 		BD14BCD028B283A500D8C29C /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */; };
 		BD14BCD228B2842100D8C29C /* PhotoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */; };
 		BD14BCDB28B2847A00D8C29C /* DDAK_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BD14BCDA28B2847A00D8C29C /* DDAK_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -117,9 +120,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD117CD428B304A400A103FA /* SwiftyJSON in Frameworks */,
 				BDCEFBB528B1400200EE0439 /* SnapKit in Frameworks */,
+				BD117CCE28B3042400A103FA /* Alamofire in Frameworks */,
 				BD14BCDE28B2847A00D8C29C /* DDAK_Core.framework in Frameworks */,
 				BDCEFBBB28B1401F00EE0439 /* ReactorKit in Frameworks */,
+				BD117CD128B3043200A103FA /* Kingfisher in Frameworks */,
 				BDCEFBBE28B140E400EE0439 /* RxCocoa in Frameworks */,
 				BDCEFBB828B1400F00EE0439 /* Then in Frameworks */,
 				BD14BD0628B29E0200D8C29C /* DDAK_Network.framework in Frameworks */,
@@ -367,6 +373,9 @@
 				BDCEFBB728B1400F00EE0439 /* Then */,
 				BDCEFBBA28B1401F00EE0439 /* ReactorKit */,
 				BDCEFBBD28B140E400EE0439 /* RxCocoa */,
+				BD117CCD28B3042400A103FA /* Alamofire */,
+				BD117CD028B3043200A103FA /* Kingfisher */,
+				BD117CD328B304A400A103FA /* SwiftyJSON */,
 			);
 			productName = DDAK;
 			productReference = BDCEFB9828B13BB100EE0439 /* DDAK.app */;
@@ -409,6 +418,9 @@
 				BDCEFBB628B1400F00EE0439 /* XCRemoteSwiftPackageReference "Then" */,
 				BDCEFBB928B1401F00EE0439 /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				BDCEFBBC28B140E400EE0439 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				BD117CCC28B3042400A103FA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BD117CCF28B3043200A103FA /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BD117CD228B304A400A103FA /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = BDCEFB9928B13BB100EE0439 /* Products */;
 			projectDirPath = "";
@@ -861,6 +873,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BD117CCC28B3042400A103FA /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		BD117CCF28B3043200A103FA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		BD117CD228B304A400A103FA /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		BDCEFBB328B1400200EE0439 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -896,6 +932,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BD117CCD28B3042400A103FA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD117CCC28B3042400A103FA /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		BD117CD028B3043200A103FA /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD117CCF28B3043200A103FA /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		BD117CD328B304A400A103FA /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD117CD228B304A400A103FA /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		BDCEFBB428B1400200EE0439 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BDCEFBB328B1400200EE0439 /* XCRemoteSwiftPackageReference "SnapKit" */;
