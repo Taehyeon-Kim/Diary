@@ -24,27 +24,37 @@ final class WriteView: BaseView {
         self.backgroundColor = .systemBackground
         
         containerImageView.do {
-            $0.backgroundColor = .black
+            $0.backgroundColor = .white
+            $0.layer.shadowColor = UIColor.black.cgColor
+            $0.layer.shadowOpacity = 0.5
+            $0.layer.shadowRadius = 10
+            $0.layer.shadowOffset = CGSize(width: 0, height: 0)
         }
         
         maskingTapeImageView.do {
-            $0.backgroundColor = .blue
+            $0.clipsToBounds = true
+            $0.contentMode = .scaleAspectFill
+            $0.image = UIImage(named: "img_tape1")
         }
         
         photoImageView.do {
-            $0.backgroundColor = .white
+            $0.backgroundColor = .systemGray6
         }
         
         selectPhotoButton.do {
-            $0.backgroundColor = .blue
+            $0.contentMode = .scaleAspectFill
+            $0.setBackgroundImage(UIImage(systemName: "photo.circle"), for: .normal)
+            $0.tintColor = .darkGray
         }
         
         titleTextField.do {
-            $0.backgroundColor = .white
+            $0.font = .boldSystemFont(ofSize: 16)
+            $0.placeholder = " 사진의 이름을 기록해봐요."
         }
         
-        titleTextField.do {
-            $0.backgroundColor = .white
+        contentTextView.do {
+            $0.text = "간단하게 설명을 남겨주세요."
+            $0.textColor = .systemGray
         }
     }
     
@@ -66,8 +76,8 @@ final class WriteView: BaseView {
         }
         
         maskingTapeImageView.snp.makeConstraints {
-            $0.width.equalTo(containerImageView).multipliedBy(0.3)
-            $0.height.equalTo(40)
+            $0.width.equalTo(containerImageView).multipliedBy(0.4)
+            $0.height.equalTo(30)
             $0.centerX.equalToSuperview()
             $0.centerY.equalTo(containerImageView.snp.top)
         }
@@ -75,7 +85,7 @@ final class WriteView: BaseView {
         photoImageView.snp.makeConstraints {
             $0.height.equalTo(containerImageView).multipliedBy(0.6)
             $0.top.equalTo(containerImageView).inset(20)
-            $0.leading.trailing.equalTo(containerImageView).inset(16)
+            $0.leading.trailing.equalTo(containerImageView).inset(20)
         }
         
         selectPhotoButton.snp.makeConstraints {
@@ -86,14 +96,14 @@ final class WriteView: BaseView {
         
         titleTextField.snp.makeConstraints {
             $0.top.equalTo(photoImageView.snp.bottom).offset(16)
-            $0.leading.trailing.equalTo(containerImageView).inset(16)
+            $0.leading.trailing.equalTo(containerImageView).inset(20)
             $0.height.equalTo(40)
         }
         
         contentTextView.snp.makeConstraints {
             $0.top.equalTo(titleTextField.snp.bottom).offset(16)
+            $0.leading.trailing.equalTo(containerImageView).inset(20)
             $0.bottom.equalTo(containerImageView.snp.bottom).inset(16)
-            $0.leading.trailing.equalTo(containerImageView).inset(16)
         }
     }
 }
