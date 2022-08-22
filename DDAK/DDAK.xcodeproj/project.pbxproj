@@ -18,6 +18,7 @@
 		BD117D0D28B3EE8800A103FA /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BD117D0C28B3EE8800A103FA /* Realm */; };
 		BD117D0F28B3EE8800A103FA /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BD117D0E28B3EE8800A103FA /* RealmSwift */; };
 		BD117D1328B3EF9100A103FA /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD117D1228B3EF9100A103FA /* Diary.swift */; };
+		BD117D1628B3F55C00A103FA /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD117D1528B3F55C00A103FA /* UIViewController+.swift */; };
 		BD14BCD028B283A500D8C29C /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */; };
 		BD14BCD228B2842100D8C29C /* PhotoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */; };
 		BD14BCDB28B2847A00D8C29C /* DDAK_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BD14BCDA28B2847A00D8C29C /* DDAK_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,6 +87,7 @@
 		BD117D0728B3C83900A103FA /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 		BD117D0928B3C84000A103FA /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		BD117D1228B3EF9100A103FA /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		BD117D1528B3F55C00A103FA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewController.swift; sourceTree = "<group>"; };
 		BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchView.swift; sourceTree = "<group>"; };
 		BD14BCD828B2847A00D8C29C /* DDAK_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DDAK_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				BD14BCEF28B289DD00D8C29C /* UIView+.swift */,
+				BD117D1528B3F55C00A103FA /* UIViewController+.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				BD14BCF728B28E4F00D8C29C /* BaseCollectionViewCell.swift in Sources */,
 				BD14BCE628B284A500D8C29C /* BaseView.swift in Sources */,
 				BD14BCEA28B2852A00D8C29C /* Logger.swift in Sources */,
+				BD117D1628B3F55C00A103FA /* UIViewController+.swift in Sources */,
 				BD14BCED28B2854300D8C29C /* String+.swift in Sources */,
 				BD14BCE828B284AB00D8C29C /* BaseViewController.swift in Sources */,
 				BD14BCF028B289DD00D8C29C /* UIView+.swift in Sources */,
