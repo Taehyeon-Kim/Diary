@@ -18,6 +18,8 @@ final class PhotoSearchView: BaseView {
     
     override func configureAttributes() {
         
+        self.backgroundColor = .systemBackground
+        
         searchBar.do {
             $0.placeholder = "사진을 검색해보세요."
             $0.searchTextField.font = .systemFont(ofSize: 14)
