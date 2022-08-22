@@ -29,6 +29,7 @@ final class PhotoSearchViewController: BaseViewController {
     
     override func configureAttributes() {
         configureCollectionView()
+        configureSearchBar()
     }
 }
 
@@ -40,6 +41,19 @@ extension PhotoSearchViewController {
             self.imageStrings = imageStrings
             self.photoSearchView.collectionView.reloadData()
         }
+    }
+}
+
+extension PhotoSearchViewController: UISearchBarDelegate {
+    
+    private func configureSearchBar() {
+        photoSearchView.searchBar.delegate = self
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let keyword = searchBar.text else { return }
+        searchImage(query: keyword)
+        view.endEditing(true)
     }
 }
 
