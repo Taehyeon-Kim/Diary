@@ -16,9 +16,11 @@ final class WriteView: BaseView {
     lazy var maskingTapeImageView = UIImageView()
     lazy var containerImageView = UIImageView()
     lazy var photoImageView = UIImageView()
-    lazy var selectPhotoButton = UIButton()
     lazy var titleTextField = UITextField()
     lazy var contentTextView = UITextView()
+    lazy var buttonHStackView = UIStackView()
+    lazy var selectPhotoButton = UIButton()
+    lazy var saveButton = UIButton()
     
     override func configureAttributes() {
         self.backgroundColor = .systemBackground
@@ -41,12 +43,6 @@ final class WriteView: BaseView {
             $0.backgroundColor = .systemGray6
         }
         
-        selectPhotoButton.do {
-            $0.contentMode = .scaleAspectFill
-            $0.setBackgroundImage(UIImage(systemName: "photo.circle"), for: .normal)
-            $0.tintColor = .darkGray
-        }
-        
         titleTextField.do {
             $0.font = .boldSystemFont(ofSize: 16)
             $0.placeholder = " 사진의 이름을 기록해봐요."
@@ -56,6 +52,23 @@ final class WriteView: BaseView {
             $0.text = "간단하게 설명을 남겨주세요."
             $0.textColor = .systemGray
         }
+        
+        buttonHStackView.do {
+            $0.axis = .horizontal
+            $0.spacing = 10
+        }
+        
+        selectPhotoButton.do {
+            $0.contentMode = .scaleAspectFill
+            $0.setBackgroundImage(UIImage(systemName: "photo.circle"), for: .normal)
+            $0.tintColor = .darkGray
+        }
+        
+        saveButton.do {
+            $0.contentMode = .scaleAspectFill
+            $0.setBackgroundImage(UIImage(systemName: "paperplane.circle"), for: .normal)
+            $0.tintColor = .darkGray
+        }
     }
     
     override func configureLayout() {
@@ -64,13 +77,16 @@ final class WriteView: BaseView {
             containerImageView,
             maskingTapeImageView,
             photoImageView,
-            selectPhotoButton,
             titleTextField,
-            contentTextView
+            contentTextView,
+            buttonHStackView
         )
         
+        buttonHStackView.addArrangedSubview(selectPhotoButton)
+        buttonHStackView.addArrangedSubview(saveButton)
+        
         containerImageView.snp.makeConstraints {
-            $0.leadingMargin.trailingMargin.equalTo(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalToSuperview().multipliedBy(0.5)
             $0.center.equalToSuperview()
         }
@@ -87,13 +103,7 @@ final class WriteView: BaseView {
             $0.top.equalTo(containerImageView).inset(20)
             $0.leading.trailing.equalTo(containerImageView).inset(20)
         }
-        
-        selectPhotoButton.snp.makeConstraints {
-            $0.trailing.equalTo(photoImageView.snp.trailing).offset(-12)
-            $0.bottom.equalTo(photoImageView.snp.bottom).offset(-12)
-            $0.width.height.equalTo(40)
-        }
-        
+
         titleTextField.snp.makeConstraints {
             $0.top.equalTo(photoImageView.snp.bottom).offset(16)
             $0.leading.trailing.equalTo(containerImageView).inset(20)
@@ -104,6 +114,20 @@ final class WriteView: BaseView {
             $0.top.equalTo(titleTextField.snp.bottom).offset(16)
             $0.leading.trailing.equalTo(containerImageView).inset(20)
             $0.bottom.equalTo(containerImageView.snp.bottom).inset(16)
+        }
+        
+        buttonHStackView.snp.makeConstraints {
+            $0.top.equalTo(containerImageView.snp.bottom).offset(12)
+            $0.trailing.equalTo(containerImageView.snp.trailing)
+            $0.height.equalTo(40)
+        }
+        
+        selectPhotoButton.snp.makeConstraints {
+            $0.width.height.equalTo(40)
+        }
+
+        saveButton.snp.makeConstraints {
+            $0.width.height.equalTo(40)
         }
     }
 }
