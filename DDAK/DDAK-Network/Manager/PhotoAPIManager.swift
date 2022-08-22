@@ -18,10 +18,10 @@ public class PhotoAPIManager {
     
     public typealias completion = ([String]) -> ()
     
-    public func searchImage(query: String, page: Int = 1, completion: @escaping completion) {
+    public func searchImage(query: String, page: Int = 1, perPage: Int = 10, completion: @escaping completion) {
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         
-        let url = EndPoint.search(query: query, page: page).requestURL
+        let url = EndPoint.search(query: query, page: page, perPage: perPage).requestURL
         
         AF.request(url, method: .get).validate(statusCode: 200...500).responseData { response in
             switch response.result {

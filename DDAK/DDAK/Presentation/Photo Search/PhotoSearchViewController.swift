@@ -36,9 +36,9 @@ final class PhotoSearchViewController: BaseViewController {
 
 extension PhotoSearchViewController {
     
-    private func searchImage(query: String, page: Int = 1) {
+    private func searchImage(query: String, page: Int = 1, perPage: Int = 30) {
         
-        PhotoAPIManager.shared.searchImage(query: query) { imageStrings in
+        PhotoAPIManager.shared.searchImage(query: query, page: page, perPage: perPage) { imageStrings in
             self.imageStrings = imageStrings
             self.photoSearchView.collectionView.reloadData()
         }
@@ -67,6 +67,7 @@ extension PhotoSearchViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(imageStrings.count)
         return imageStrings.count
     }
     
