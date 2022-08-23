@@ -21,6 +21,7 @@
 		BD117D1628B3F55C00A103FA /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD117D1528B3F55C00A103FA /* UIViewController+.swift */; };
 		BD117D1B28B4554300A103FA /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD117D1A28B4554300A103FA /* ListView.swift */; };
 		BD117D1D28B4554A00A103FA /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD117D1C28B4554A00A103FA /* ListViewController.swift */; };
+		BD117D2028B4615D00A103FA /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD117D1F28B4615D00A103FA /* DiaryCell.swift */; };
 		BD14BCD028B283A500D8C29C /* PhotoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */; };
 		BD14BCD228B2842100D8C29C /* PhotoSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */; };
 		BD14BCDB28B2847A00D8C29C /* DDAK_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = BD14BCDA28B2847A00D8C29C /* DDAK_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,6 +92,7 @@
 		BD117D1528B3F55C00A103FA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		BD117D1A28B4554300A103FA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		BD117D1C28B4554A00A103FA /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		BD117D1F28B4615D00A103FA /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
 		BD14BCCF28B283A500D8C29C /* PhotoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchViewController.swift; sourceTree = "<group>"; };
 		BD14BCD128B2842100D8C29C /* PhotoSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchView.swift; sourceTree = "<group>"; };
 		BD14BCD828B2847A00D8C29C /* DDAK_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DDAK_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				BD117D1A28B4554300A103FA /* ListView.swift */,
+				BD117D1F28B4615D00A103FA /* DiaryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				BD117D0A28B3C84000A103FA /* WriteViewController.swift in Sources */,
 				BD117D0828B3C83900A103FA /* WriteView.swift in Sources */,
 				BD117D1D28B4554A00A103FA /* ListViewController.swift in Sources */,
+				BD117D2028B4615D00A103FA /* DiaryCell.swift in Sources */,
 				BD117D1B28B4554300A103FA /* ListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

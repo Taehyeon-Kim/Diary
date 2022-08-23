@@ -77,7 +77,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     private func configureTableView() {
         listView.tableView.delegate = self
         listView.tableView.dataSource = self
-        listView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        listView.tableView.register(DiaryCell.self, forCellReuseIdentifier: DiaryCell.reuseIdentifier)
+        listView.tableView.rowHeight = 180
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,8 +86,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell.textLabel?.text = tasks[indexPath.row].diaryTitle
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryCell.reuseIdentifier) as? DiaryCell else { return UITableViewCell() }
+        cell.configure(with: tasks[indexPath.row])
         return cell
     }
 }
