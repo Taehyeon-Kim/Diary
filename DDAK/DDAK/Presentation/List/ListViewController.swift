@@ -43,11 +43,34 @@ final class ListViewController: BaseViewController {
 extension ListViewController {
     
     private func configureNavigationBar() {
-        let sortItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(sortItemTapped))
-        let filterItem = UIBarButtonItem(image: UIImage(systemName: "camera.filters"), style: .plain, target: self, action: #selector(filterItemTapped))
-        let writeItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(transitionToWriteViewController))
-        navigationItem.leftBarButtonItems = [sortItem, filterItem]
-        navigationItem.rightBarButtonItem = writeItem
+        let label = UILabel()
+        label.textColor = .black
+        label.text = "DDAK"
+        label.font = UIFont(name: "GamjaFlower-Regular", size: 28)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: label)
+        
+        let sortButton = UIButton(type: .custom)
+        sortButton.tintColor = .black
+        sortButton.setImage(UIImage(systemName: "list.bullet"), for: .normal)
+        sortButton.addTarget(self, action: #selector(sortItemTapped), for: .touchUpInside)
+        sortButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let sortItem = UIBarButtonItem(customView: sortButton)
+        
+        let filterButton = UIButton(type: .custom)
+        filterButton.tintColor = .black
+        filterButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        filterButton.addTarget(self, action: #selector(filterItemTapped), for: .touchUpInside)
+        filterButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let filterItem = UIBarButtonItem(customView: filterButton)
+        
+        let writeButton = UIButton(type: .custom)
+        writeButton.tintColor = .black
+        writeButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        writeButton.addTarget(self, action: #selector(transitionToWriteViewController), for: .touchUpInside)
+        writeButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let writeItem = UIBarButtonItem(customView: writeButton)
+
+        navigationItem.rightBarButtonItems = [sortItem, filterItem, writeItem]
     }
     
     @objc func sortItemTapped() {
