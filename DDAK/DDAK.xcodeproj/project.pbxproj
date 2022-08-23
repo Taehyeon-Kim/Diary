@@ -51,6 +51,7 @@
 		BDCEFBBB28B1401F00EE0439 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = BDCEFBBA28B1401F00EE0439 /* ReactorKit */; };
 		BDCEFBBE28B140E400EE0439 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BDCEFBBD28B140E400EE0439 /* RxCocoa */; };
 		BDF5576F28B4ECB400017349 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDF5576E28B4ECB400017349 /* GamjaFlower-Regular.ttf */; };
+		BDF5577128B4FE2100017349 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BDF5577028B4FE2100017349 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF5577128B4FE2100017349 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +436,9 @@
 			dependencies = (
 			);
 			name = "DDAK-Core";
+			packageProductDependencies = (
+				BDF5577028B4FE2100017349 /* Then */,
+			);
 			productName = "DDAK-Core";
 			productReference = BD14BCD828B2847A00D8C29C /* DDAK_Core.framework */;
 			productType = "com.apple.product-type.framework";
@@ -1113,6 +1118,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BDCEFBBC28B140E400EE0439 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
+		};
+		BDF5577028B4FE2100017349 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDCEFBB628B1400F00EE0439 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

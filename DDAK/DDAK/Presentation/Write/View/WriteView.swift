@@ -18,9 +18,9 @@ final class WriteView: BaseView {
     lazy var photoImageView = UIImageView()
     lazy var titleTextField = UITextField()
     lazy var contentTextView = UITextView()
-    lazy var buttonHStackView = UIStackView()
+    lazy var buttonHStackView = UIStackView(arrangedSubviews: [selectPhotoButton, colorButton])
     lazy var selectPhotoButton = UIButton()
-    lazy var saveButton = UIButton()
+    lazy var colorButton = UIButton()
     
     override func configureAttributes() {
         self.backgroundColor = .systemBackground
@@ -63,10 +63,10 @@ final class WriteView: BaseView {
             $0.setBackgroundImage(UIImage(systemName: "photo.circle"), for: .normal)
             $0.tintColor = .darkGray
         }
-        
-        saveButton.do {
+
+        colorButton.do {
             $0.contentMode = .scaleAspectFill
-            $0.setBackgroundImage(UIImage(systemName: "paperplane.circle"), for: .normal)
+            $0.setBackgroundImage(UIImage(systemName: "paintpalette"), for: .normal)
             $0.tintColor = .darkGray
         }
     }
@@ -81,10 +81,7 @@ final class WriteView: BaseView {
             contentTextView,
             buttonHStackView
         )
-        
-        buttonHStackView.addArrangedSubview(selectPhotoButton)
-        buttonHStackView.addArrangedSubview(saveButton)
-        
+
         containerImageView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalToSuperview().multipliedBy(0.5)
@@ -126,7 +123,7 @@ final class WriteView: BaseView {
             $0.width.height.equalTo(40)
         }
 
-        saveButton.snp.makeConstraints {
+        colorButton.snp.makeConstraints {
             $0.width.height.equalTo(40)
         }
     }

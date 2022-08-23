@@ -71,6 +71,7 @@ extension ListViewController {
         let writeItem = UIBarButtonItem(customView: writeButton)
 
         navigationItem.rightBarButtonItems = [sortItem, filterItem, writeItem]
+        navigationItem.hidesBackButton = true
     }
     
     @objc func sortItemTapped() {
