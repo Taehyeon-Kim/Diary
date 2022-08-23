@@ -90,4 +90,22 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(with: tasks[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let favorite = UIContextualAction(style: .normal, title: nil) { action, view, completion in
+            
+            try! self.realm.write {
+                self.tasks[indexPath.row].favorite.toggle()
+                print("Realm Update Success! reloadRows 필요")
+            }
+            self.readDiary()
+        }
+        
+        let systemImageName = tasks[indexPath.row].favorite ? "star.fill" : "star"
+        favorite.image = UIImage(systemName: systemImageName)
+        favorite.backgroundColor = .systemPink
+        
+        return UISwipeActionsConfiguration(actions: [favorite])
+    }
 }
