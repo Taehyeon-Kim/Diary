@@ -54,7 +54,8 @@ extension WriteViewController {
             photoURLString: photoURLString,
             diaryTitle: title,
             diaryContent: writeView.contentTextView.text,
-            diaryDate: Date()
+            diaryDate: Date(),
+            createdAt: Date()
         )
         
         try! realm.write {

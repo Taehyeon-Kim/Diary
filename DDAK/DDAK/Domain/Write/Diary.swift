@@ -17,18 +17,23 @@ class Diary: Object {
     @Persisted var diaryTitle: String
     @Persisted var diaryContent: String?
     @Persisted var diaryDate = Date()
+    @Persisted var createdAt = Date()
+    @Persisted var favorite: Bool
     
     
     convenience init(
         photoURLString: String?,
         diaryTitle: String,
         diaryContent: String?,
-        diaryDate: Date
+        diaryDate: Date,
+        createdAt: Date
     ) {
         self.init()
         self.photoURLString = photoURLString
         self.diaryTitle = diaryTitle
         self.diaryContent = diaryContent
         self.diaryDate = diaryDate
+        self.createdAt = createdAt
+        self.favorite = false
     }
 }
