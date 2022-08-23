@@ -50,6 +50,7 @@
 		BDCEFBB828B1400F00EE0439 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BDCEFBB728B1400F00EE0439 /* Then */; };
 		BDCEFBBB28B1401F00EE0439 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = BDCEFBBA28B1401F00EE0439 /* ReactorKit */; };
 		BDCEFBBE28B140E400EE0439 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BDCEFBBD28B140E400EE0439 /* RxCocoa */; };
+		BDF5576F28B4ECB400017349 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDF5576E28B4ECB400017349 /* GamjaFlower-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		BDCEFBA428B13BB300EE0439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDCEFBA728B13BB300EE0439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDCEFBA928B13BB300EE0439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDF5576E28B4ECB400017349 /* GamjaFlower-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GamjaFlower-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +365,7 @@
 		BDCEFBB028B13E9500EE0439 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BDF5576D28B4ECA400017349 /* Fonts */,
 				BDCEFBA428B13BB300EE0439 /* Assets.xcassets */,
 				BDCEFBA628B13BB300EE0439 /* LaunchScreen.storyboard */,
 			);
@@ -385,6 +388,14 @@
 				BD117D0528B3C81D00A103FA /* Write */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		BDF5576D28B4ECA400017349 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BDF5576E28B4ECB400017349 /* GamjaFlower-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -552,6 +563,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF5576F28B4ECB400017349 /* GamjaFlower-Regular.ttf in Resources */,
 				BDCEFBA828B13BB300EE0439 /* LaunchScreen.storyboard in Resources */,
 				BDCEFBA528B13BB300EE0439 /* Assets.xcassets in Resources */,
 			);

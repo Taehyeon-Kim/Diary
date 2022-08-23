@@ -78,7 +78,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         listView.tableView.delegate = self
         listView.tableView.dataSource = self
         listView.tableView.register(DiaryCell.self, forCellReuseIdentifier: DiaryCell.reuseIdentifier)
-        listView.tableView.rowHeight = 180
+        listView.tableView.rowHeight = UITableView.automaticDimension
+        listView.tableView.separatorStyle = .none
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
