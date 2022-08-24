@@ -14,7 +14,7 @@ import Then
 
 final class PhotoCell: BaseCollectionViewCell {
     
-    private let photoImageView = UIImageView()
+    let photoImageView = UIImageView()
     
     override func configureAttributes() {
         

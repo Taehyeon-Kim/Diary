@@ -83,9 +83,8 @@ extension WriteViewController {
         
         actionSheet.addAction(UIAlertAction(title: "사진 검색", style: .default, handler: { [weak self] _ in
             let photoSearchViewController = PhotoSearchViewController()
-            photoSearchViewController.selectionCompletionHandler = { photoURLString in
-                self?.photoURLString = photoURLString
-                self?.writeView.photoImageView.kf.setImage(with: URL(string: photoURLString))
+            photoSearchViewController.selectionCompletionHandler = { photo in
+                self?.writeView.photoImageView.image = photo
             }
             self?.transition(photoSearchViewController, transitionStyle: .push)
         }))

@@ -15,9 +15,10 @@ import Then
 final class PhotoSearchViewController: BaseViewController {
     
     private let photoSearchView = PhotoSearchView()
-    
+     
     private var imageStrings: [String] = []
-    var selectionCompletionHandler: ((String) -> ())?
+    private var selectedImage: UIImage?
+    var selectionCompletionHandler: ((UIImage) -> ())?
     
     override func loadView() {
         self.view = photoSearchView
@@ -49,10 +50,22 @@ extension PhotoSearchViewController {
         let xmarkButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissController))
         xmarkButtonItem.tintColor = .black
         navigationItem.leftBarButtonItem = xmarkButtonItem
+        
+        let selectButtonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(selectImage))
+        navigationItem.rightBarButtonItem = selectButtonItem
     }
     
     @objc func dismissController() {
         self.dismiss(animated: true)
+    }
+    
+    @objc func selectImage() {
+        guard let selectedImage = selectedImage else {
+            presentAlert(title: "사진을 선택해주세요.")
+            return
+        }
+        selectionCompletionHandler?(selectedImage)
+        dismiss(animated: true)
     }
 }
 
@@ -90,7 +103,9 @@ extension PhotoSearchViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectionCompletionHandler?(imageStrings[indexPath.row])
-        dismissController()
+//        selectionCompletionHandler?(imageStrings[indexPath.row])
+//        dismissController()
+        guard let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell else { return }
+        selectedImage = cell.photoImageView.image
     }
 }
