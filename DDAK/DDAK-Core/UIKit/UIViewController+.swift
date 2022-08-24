@@ -30,14 +30,14 @@ extension UIViewController {
 
 extension UIViewController {
     
-    enum TransitionStyle {
+    public enum TransitionStyle {
         case present
         case presentNavigation
         case presentFullNavigation
         case push
     }
     
-    func transition<T: UIViewController>(_ viewController: T, transitionStyle: TransitionStyle = .present) {
+    public func transition<T: UIViewController>(_ viewController: T, transitionStyle: TransitionStyle = .present) {
         
         switch transitionStyle {
         case .present:

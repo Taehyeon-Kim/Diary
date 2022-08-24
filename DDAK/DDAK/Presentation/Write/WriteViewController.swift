@@ -87,10 +87,10 @@ extension WriteViewController {
                 self?.photoURLString = photoURLString
                 self?.writeView.photoImageView.kf.setImage(with: URL(string: photoURLString))
             }
-            self?.present(photoSearchViewController, animated: true)
+            self?.transition(photoSearchViewController, transitionStyle: .push)
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "사진 촬영", style: .default, handler: { _ in
+        actionSheet.addAction(UIAlertAction(title: "사진 촬영", style: .default, handler: { [weak self] _ in
             guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
                 return
             }
@@ -98,21 +98,21 @@ extension WriteViewController {
             picker.sourceType = .camera
             picker.delegate = self
             picker.allowsEditing = true
-            self.present(picker, animated: true)
+            self?.transition(picker, transitionStyle: .present)
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "갤러리", style: .default, handler: { _ in
+        actionSheet.addAction(UIAlertAction(title: "갤러리", style: .default, handler: { [weak self] _ in
             var configuration = PHPickerConfiguration()
             configuration.selectionLimit = 1
             configuration.filter = .images
             
             let picker = PHPickerViewController(configuration: configuration)
             picker.delegate = self
-            self.present(picker, animated: true)
+            self?.transition(picker, transitionStyle: .present)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel))
-        present(actionSheet, animated: true)
+        transition(actionSheet, transitionStyle: .present)
     }
     
     @objc func saveButtonTapped() {
@@ -130,7 +130,9 @@ extension WriteViewController {
         try! realm.write {
             realm.add(diary)
             Logger.log(diary)
-            self.presentAlert(title: "📩 성공적으로 저장되었어요.")
+            self.presentAlert(title: "📩 성공적으로 저장되었어요.") { _ in
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 }

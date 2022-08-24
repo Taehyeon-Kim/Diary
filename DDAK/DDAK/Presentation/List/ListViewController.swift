@@ -79,13 +79,12 @@ extension ListViewController {
     }
     
     @objc func filterItemTapped() {
-//        tasks = realm.objects(Diary.self).filter("diaryTitle = 'Sea'")
         tasks = realm.objects(Diary.self).filter("diaryTitle CONTAINS[c] '날'")
     }
     
     @objc func transitionToWriteViewController() {
         let writeViewController = WriteViewController()
-        navigationController?.pushViewController(writeViewController, animated: true)
+        transition(writeViewController, transitionStyle: .presentFullNavigation)
     }
 }
 
@@ -121,20 +120,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         let favorite = UIContextualAction(style: .normal, title: nil) { action, view, completion in
             
             try! self.realm.write {
-                
-                // 하나의 레코드에서 특정 컬럼 하나만 변경
                 self.tasks[indexPath.row].favorite.toggle()
-                
-                // 하나의 테이블에 특정 컬럼 전체 값 변경
-//                self.tasks[indexPath.row].setValue(true, forKey: "favorite")
-                
-                // 하나의 레코드에서 여러 컬럼들이 변경
-//                let value: [String: Any] = [
-//                    "objectId": self.tasks[indexPath.row].objectId,
-//                    "diaryTitle": "제목",
-//                    "diaryContent": "내용"
-//                ]
-//                self.realm.create(Diary.self, value: value, update: .modified)
             }
             self.readDiary()
         }

@@ -31,6 +31,7 @@ final class PhotoSearchViewController: BaseViewController {
     override func configureAttributes() {
         configureCollectionView()
         configureSearchBar()
+        configureNavigationBar()
     }
 }
 
@@ -42,6 +43,16 @@ extension PhotoSearchViewController {
             self.imageStrings = imageStrings
             self.photoSearchView.collectionView.reloadData()
         }
+    }
+    
+    private func configureNavigationBar() {
+        let xmarkButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissController))
+        xmarkButtonItem.tintColor = .black
+        navigationItem.leftBarButtonItem = xmarkButtonItem
+    }
+    
+    @objc func dismissController() {
+        self.dismiss(animated: true)
     }
 }
 
@@ -80,6 +91,6 @@ extension PhotoSearchViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectionCompletionHandler?(imageStrings[indexPath.row])
-        dismiss(animated: true)
+        dismissController()
     }
 }
