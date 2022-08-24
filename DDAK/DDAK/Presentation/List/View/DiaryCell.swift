@@ -18,7 +18,7 @@ final class DiaryCell: BaseTableViewCell {
     private let dateLabel = UILabel()
     private let diaryTitleLabel = UILabel()
     private let photoContainerView = UIView()
-    private let photoImageView = UIImageView()
+    let photoImageView = UIImageView()
     private let maskingTapeImageView = UIImageView()
     private let favoriteButton = UIButton()
     
@@ -135,9 +135,9 @@ final class DiaryCell: BaseTableViewCell {
 
 extension DiaryCell {
     
-    func configure(with diary: Diary) {
+    func configure(with diary: Diary, image: UIImage?) {
         dateLabel.text = dateFormatter.string(from: diary.diaryDate)
-        photoImageView.kf.setImage(with: URL(string: diary.photoURLString ?? ""))
+        photoImageView.image = image
         diaryTitleLabel.text = diary.diaryTitle
     }
 }

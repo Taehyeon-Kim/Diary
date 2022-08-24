@@ -116,7 +116,10 @@ extension WriteViewController {
     
     @objc func saveButtonTapped() {
         
-        guard let title = writeView.titleTextField.text else { return }
+        guard let title = writeView.titleTextField.text else {
+            self.presentAlert(title: "제목을 입력해주세요")
+            return
+        }
         
         let diary = Diary(
             photoURLString: photoURLString,
@@ -126,12 +129,20 @@ extension WriteViewController {
             createdAt: Date()
         )
         
-        try! realm.write {
-            realm.add(diary)
-            Logger.log(diary)
-            self.presentAlert(title: "📩 성공적으로 저장되었어요.") { _ in
-                self.navigationController?.popViewController(animated: true)
+        do {
+            try realm.write {
+                realm.add(diary)
+
+                if let image = writeView.photoImageView.image {
+                    saveImageToDocument(fileName: "\(diary.objectId).jpg", image: image)
+                }
+                
+                self.presentAlert(title: "📩 성공적으로 저장되었어요.") { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
+        } catch let error {
+            Logger.log(error)
         }
     }
 }

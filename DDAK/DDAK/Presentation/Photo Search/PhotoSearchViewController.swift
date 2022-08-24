@@ -18,6 +18,7 @@ final class PhotoSearchViewController: BaseViewController {
      
     private var imageStrings: [String] = []
     private var selectedImage: UIImage?
+    private var selectedIndexPath: IndexPath?
     var selectionCompletionHandler: ((UIImage) -> ())?
     
     override func loadView() {
@@ -65,7 +66,7 @@ extension PhotoSearchViewController {
             return
         }
         selectionCompletionHandler?(selectedImage)
-        dismiss(animated: true)
+        dismissController()
     }
 }
 
@@ -98,14 +99,25 @@ extension PhotoSearchViewController: UICollectionViewDelegate, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseIdentifier, for: indexPath) as? PhotoCell else {
             return UICollectionViewCell()
         }
+
+        cell.layer.borderWidth = selectedIndexPath == indexPath ? 4 : 0
+        cell.layer.borderColor = selectedIndexPath == indexPath ? UIColor.yellow.cgColor : nil
+        
         cell.configure(withImage: imageStrings[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        selectionCompletionHandler?(imageStrings[indexPath.row])
-//        dismissController()
         guard let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell else { return }
         selectedImage = cell.photoImageView.image
+        
+        selectedIndexPath = indexPath
+        collectionView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        selectedIndexPath = nil
+        selectedImage = nil
+        collectionView.reloadData()
     }
 }

@@ -111,7 +111,8 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryCell.reuseIdentifier) as? DiaryCell else { return UITableViewCell() }
-        cell.configure(with: tasks[indexPath.row])
+        let image = loadImageFromDocument(fileName: "\(tasks[indexPath.row].objectId).jpg")
+        cell.configure(with: tasks[indexPath.row], image: image)
         return cell
     }
     
