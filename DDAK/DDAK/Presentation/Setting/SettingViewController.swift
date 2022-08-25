@@ -90,6 +90,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case .restore:
             restoreData()
         default:
+            fetchDocumentZipFile()
             return
         }
     }

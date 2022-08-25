@@ -99,4 +99,22 @@ extension UIViewController {
             Logger.log(error)
         }
     }
+    
+    public func fetchDocumentZipFile() {
+        do {
+            guard let path = getDocumentDirectoryPath() else { return }
+            
+            let docs = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+            print("docs: \(docs)")
+            
+            let zip = docs.filter { $0.pathExtension == "zip" }
+            print("zip: \(zip)")
+            
+            let result = zip.map { $0.lastPathComponent }
+            print("result: \(result)")
+            
+        } catch {
+            print("Error")
+        }
+    }
 }
