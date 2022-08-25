@@ -49,6 +49,13 @@ extension ListViewController {
         label.font = UIFont(name: "GamjaFlower-Regular", size: 28)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: label)
         
+        let settingButton = UIButton(type: .custom)
+        settingButton.tintColor = .black
+        settingButton.setImage(UIImage(systemName: "gearshape"), for: .normal)
+        settingButton.addTarget(self, action: #selector(transitionToSettingViewController), for: .touchUpInside)
+        settingButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let settingItem = UIBarButtonItem(customView: settingButton)
+        
         let sortButton = UIButton(type: .custom)
         sortButton.tintColor = .black
         sortButton.setImage(UIImage(systemName: "list.bullet"), for: .normal)
@@ -70,8 +77,13 @@ extension ListViewController {
         writeButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let writeItem = UIBarButtonItem(customView: writeButton)
 
-        navigationItem.rightBarButtonItems = [sortItem, filterItem, writeItem]
+        navigationItem.rightBarButtonItems = [settingItem, sortItem, filterItem, writeItem]
         navigationItem.hidesBackButton = true
+    }
+    
+    @objc func transitionToSettingViewController() {
+        let writeViewController = SettingViewController()
+        transition(writeViewController, transitionStyle: .presentFullNavigation)
     }
     
     @objc func sortItemTapped() {

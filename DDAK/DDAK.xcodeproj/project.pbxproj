@@ -52,6 +52,7 @@
 		BDCEFBB828B1400F00EE0439 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BDCEFBB728B1400F00EE0439 /* Then */; };
 		BDCEFBBB28B1401F00EE0439 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = BDCEFBBA28B1401F00EE0439 /* ReactorKit */; };
 		BDCEFBBE28B140E400EE0439 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BDCEFBBD28B140E400EE0439 /* RxCocoa */; };
+		BDF2E58928B7016F008EF3BA /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = BDF2E58828B7016F008EF3BA /* Zip */; };
 		BDF5576F28B4ECB400017349 /* GamjaFlower-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDF5576E28B4ECB400017349 /* GamjaFlower-Regular.ttf */; };
 		BDF5577128B4FE2100017349 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = BDF5577028B4FE2100017349 /* Then */; };
 /* End PBXBuildFile section */
@@ -154,6 +155,7 @@
 				BD14BCDE28B2847A00D8C29C /* DDAK_Core.framework in Frameworks */,
 				BD117D0D28B3EE8800A103FA /* Realm in Frameworks */,
 				BDCEFBBB28B1401F00EE0439 /* ReactorKit in Frameworks */,
+				BDF2E58928B7016F008EF3BA /* Zip in Frameworks */,
 				BD117CD128B3043200A103FA /* Kingfisher in Frameworks */,
 				BDCEFBBE28B140E400EE0439 /* RxCocoa in Frameworks */,
 				BD117D0F28B3EE8800A103FA /* RealmSwift in Frameworks */,
@@ -513,6 +515,7 @@
 				BD117CD328B304A400A103FA /* SwiftyJSON */,
 				BD117D0C28B3EE8800A103FA /* Realm */,
 				BD117D0E28B3EE8800A103FA /* RealmSwift */,
+				BDF2E58828B7016F008EF3BA /* Zip */,
 			);
 			productName = DDAK;
 			productReference = BDCEFB9828B13BB100EE0439 /* DDAK.app */;
@@ -559,6 +562,7 @@
 				BD117CCF28B3043200A103FA /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				BD117CD228B304A400A103FA /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				BD117D0B28B3EE8800A103FA /* XCRemoteSwiftPackageReference "realm-swift" */,
+				BDF2E58728B7016F008EF3BA /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = BDCEFB9928B13BB100EE0439 /* Products */;
 			projectDirPath = "";
@@ -927,6 +931,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W7P3R7ZL78;
@@ -944,6 +949,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.DDAK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -956,6 +962,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W7P3R7ZL78;
@@ -973,6 +980,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taekki.DDAK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1085,6 +1093,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		BDF2E58728B7016F008EF3BA /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1142,6 +1158,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BDCEFBBC28B140E400EE0439 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
+		};
+		BDF2E58828B7016F008EF3BA /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDF2E58728B7016F008EF3BA /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 		BDF5577028B4FE2100017349 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
