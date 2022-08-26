@@ -88,18 +88,6 @@ extension UIViewController {
         }
     }
     
-    public func removeImageFromDocument(fileName: String) {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return } // Document 경로
-        let fileURL = documentDirectory.appendingPathComponent(fileName) // 세부 경로. 이미지를 저장할 위치
-        
-        do {
-            try FileManager.default.removeItem(at: fileURL)
-            
-        } catch let error {
-            Logger.log(error)
-        }
-    }
-    
     public func fetchDocumentZipFile() {
         do {
             guard let path = getDocumentDirectoryPath() else { return }

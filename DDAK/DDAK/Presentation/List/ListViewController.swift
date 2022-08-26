@@ -17,7 +17,7 @@ final class ListViewController: BaseViewController {
     
     private let listView = ListView()
     
-    private let realm = try! Realm()
+    private let repository: DiaryRepositoryType = DiaryRepository()
     var tasks: Results<Diary>! { didSet { listView.tableView.reloadData() } }
     
     override func loadView() {
@@ -87,11 +87,11 @@ extension ListViewController {
     }
     
     @objc func sortItemTapped() {
-        tasks = realm.objects(Diary.self).sorted(byKeyPath: "diaryDate", ascending: false)
+        tasks = repository.sort(by: "diaryDate")
     }
     
     @objc func filterItemTapped() {
-        tasks = realm.objects(Diary.self).filter("diaryTitle CONTAINS[c] '날'")
+        tasks = repository.filter()
     }
     
     @objc func transitionToWriteViewController() {
@@ -103,7 +103,7 @@ extension ListViewController {
 extension ListViewController {
     
     private func readDiary() {
-        tasks = realm.objects(Diary.self).sorted(byKeyPath: "diaryDate", ascending: true)
+        tasks = repository.fetch()
     }
 }
 
@@ -131,11 +131,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let favorite = UIContextualAction(style: .normal, title: nil) { action, view, completion in
-            
-            try! self.realm.write {
-                self.tasks[indexPath.row].favorite.toggle()
-            }
-            self.readDiary()
+            self.repository.update(item: self.tasks[indexPath.row])
         }
 
         let systemImageName = tasks[indexPath.row].favorite ? "star.fill" : "star"
@@ -156,11 +152,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             // 삭제시 같은 데이터에 대해 동시에 접근하다보면 문제가 발생할 수 있음
             // - Record -> Image (문제 발생)
             // - Image -> Record (순서 변경 시 문제 해결) => 근본적인 해결책은 아님.
-            
-            self.removeImageFromDocument(fileName: "\(task).jpg")
-            try! self.realm.write {
-                self.realm.delete(task)
-            }
+            self.repository.delete(item: task)
             self.readDiary()
         }
         
