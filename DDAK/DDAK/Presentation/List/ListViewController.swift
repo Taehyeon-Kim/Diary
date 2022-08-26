@@ -9,6 +9,7 @@ import UIKit
 
 import DDAK_Core
 import DDAK_Network
+import FSCalendar
 import SnapKit
 import Then
 import RealmSwift
@@ -16,6 +17,12 @@ import RealmSwift
 final class ListViewController: BaseViewController {
     
     private let listView = ListView()
+    
+    let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYMMdd"
+        return formatter
+    }()
     
     private let repository: DiaryRepositoryType = DiaryRepository()
     var tasks: Results<Diary>! { didSet { listView.tableView.reloadData() } }
@@ -26,17 +33,19 @@ final class ListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        readDiary()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         readDiary()
+//        listView.calendarView.reloadData()
     }
     
     override func configureAttributes() {
         configureNavigationBar()
         configureTableView()
+        configureCalendar()
     }
 }
 
@@ -103,7 +112,7 @@ extension ListViewController {
 extension ListViewController {
     
     private func readDiary() {
-        tasks = repository.fetch()
+        tasks = repository.fetchDate(date: Date())
     }
 }
 
@@ -158,4 +167,36 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: [favorite])
     }
+}
+
+extension ListViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    
+    func configureCalendar() {
+        listView.calendarView.delegate = self
+        listView.calendarView.dataSource = self
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        return repository.fetchDate(date: date).count
+    }
+    
+//    func calendar(_ calendar: FSCalendar, titleFor date: Date) -> String? {
+//        return "새싹"
+//    }
+//
+//    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+//        return UIImage(systemName: "star.fill")
+//    }
+
+    func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
+        return formatter.string(from: date) == "220907" ? "오프라인행사" : nil
+    }
+
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        tasks = repository.fetchDate(date: date)
+    }
+    
+//    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
+//
+//    }
 }

@@ -11,8 +11,9 @@ import DDAK_Core
 import RealmSwift
 
 protocol DiaryRepositoryType {
-    var count: Int { get }
+    var count: Int { get }                              // 그냥 프로퍼티도 하나 추가해봄
     func fetch() -> Results<Diary>
+    func fetchDate(date: Date) -> Results<Diary>
     func sort(by byKeyPath: String) -> Results<Diary>
     func filter() -> Results<Diary>
     func update(item: Diary)
@@ -34,6 +35,10 @@ struct DiaryRepository: DiaryRepositoryType {
         return localRealm.objects(Diary.self).sorted(byKeyPath: "diaryDate", ascending: true)
     }
     
+    func fetchDate(date: Date) -> Results<Diary> {
+        return localRealm.objects(Diary.self).filter("diaryDate >= %@ AND diaryDate < %@", date, Date(timeInterval: 86400, since: date)) // NSPredicate (%@ : 매개변수 한자리)
+    }
+    
     func sort(by byKeyPath: String) -> Results<Diary> {
         return localRealm.objects(Diary.self).sorted(byKeyPath: byKeyPath, ascending: false)
     }
@@ -49,11 +54,10 @@ struct DiaryRepository: DiaryRepositoryType {
     }
     
     func delete(item: Diary) {
+        removeImageFromDocument(fileName: "\(item.objectId).jpg")
         try! localRealm.write {
             localRealm.delete(item)
         }
-        
-        removeImageFromDocument(fileName: "\(item.objectId).jpg")
     }
     
     func removeImageFromDocument(fileName: String) {
