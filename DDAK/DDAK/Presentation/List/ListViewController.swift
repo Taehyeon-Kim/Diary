@@ -137,10 +137,32 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             }
             self.readDiary()
         }
-        
+
         let systemImageName = tasks[indexPath.row].favorite ? "star.fill" : "star"
         favorite.image = UIImage(systemName: systemImageName)
         favorite.backgroundColor = .systemPink
+        
+        return UISwipeActionsConfiguration(actions: [favorite])
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favorite = UIContextualAction(style: .normal, title: "삭제") { action, view, completion in
+            
+            // - 프로퍼티로 관리
+            // - 1. 데이터에 대한 정확성
+            // - 2. 가독성
+            let task = self.tasks[indexPath.row]
+            
+            // 삭제시 같은 데이터에 대해 동시에 접근하다보면 문제가 발생할 수 있음
+            // - Record -> Image (문제 발생)
+            // - Image -> Record (순서 변경 시 문제 해결) => 근본적인 해결책은 아님.
+            
+            self.removeImageFromDocument(fileName: "\(task).jpg")
+            try! self.realm.write {
+                self.realm.delete(task)
+            }
+            self.readDiary()
+        }
         
         return UISwipeActionsConfiguration(actions: [favorite])
     }
