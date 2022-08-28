@@ -24,8 +24,14 @@ final class ListViewController: BaseViewController {
         return formatter
     }()
     
+    var currentDate = Date().addingTimeInterval(-86400)
+    
     private let repository: DiaryRepositoryType = DiaryRepository()
-    var tasks: Results<Diary>! { didSet { listView.tableView.reloadData() } }
+    var tasks: Results<Diary>! {
+        didSet {
+            listView.tableView.reloadData()
+        }
+    }
     
     override func loadView() {
         self.view = listView
@@ -33,19 +39,18 @@ final class ListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        readDiary()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        self.tasks = self.repository.fetch(by: self.currentDate)
         tabBarController?.tabBar.isHidden = false
-        readDiary()
     }
     
     override func configureAttributes() {
         super.configureAttributes()
-        
+
         configureNavigationBar()
         configureTableView()
         configureCalendar()
@@ -108,7 +113,7 @@ extension ListViewController {
 extension ListViewController {
     
     private func readDiary() {
-        tasks = repository.fetchDate(date: Date())
+        tasks = repository.fetch(by: currentDate.addingTimeInterval(-86400))
     }
 }
 
@@ -136,7 +141,9 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let favorite = UIContextualAction(style: .normal, title: nil) { action, view, completion in
-            self.repository.update(item: self.tasks[indexPath.row])
+            self.repository.update(item: self.tasks[indexPath.row]) { diary in
+                diary.favorite.toggle()
+            }
         }
 
         let systemImageName = tasks[indexPath.row].favorite ? "star.fill" : "star"
@@ -158,7 +165,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             // - Record -> Image (문제 발생)
             // - Image -> Record (순서 변경 시 문제 해결) => 근본적인 해결책은 아님.
             self.repository.delete(item: task)
-            self.readDiary()
+            self.tasks = self.repository.fetch(by: self.currentDate)
         }
         
         return UISwipeActionsConfiguration(actions: [favorite])
@@ -173,26 +180,15 @@ extension ListViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return repository.fetchDate(date: date).count
+        return repository.fetch(by: date).count
     }
     
-//    func calendar(_ calendar: FSCalendar, titleFor date: Date) -> String? {
-//        return "새싹"
-//    }
-//
-//    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-//        return UIImage(systemName: "star.fill")
-//    }
-
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         return formatter.string(from: date) == "220907" ? "오프라인행사" : nil
     }
 
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        tasks = repository.fetchDate(date: date)
+        currentDate = date
+        tasks = repository.fetch(by: currentDate)
     }
-    
-//    func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {
-//
-//    }
 }

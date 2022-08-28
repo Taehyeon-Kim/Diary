@@ -11,64 +11,90 @@ import DDAK_Core
 import RealmSwift
 
 protocol DiaryRepositoryType {
-    var count: Int { get }                              // 그냥 프로퍼티도 하나 추가해봄
+    var count: Int { get }
     func fetch() -> Results<Diary>
-    func fetchDate(date: Date) -> Results<Diary>
+    func fetch(by date: Date) -> Results<Diary>
     func sort(by byKeyPath: String) -> Results<Diary>
     func filter() -> Results<Diary>
-    func update(item: Diary)
+    func write(item: Diary)
+    func update(item: Diary, completion: @escaping ((Diary) -> ()))
     func delete(item: Diary)
 }
 
 struct DiaryRepository: DiaryRepositoryType {
-    
-    // Realm 객체는 구조체이다.
-    // 구조체이기 때문에 싱글톤 패턴이 의미가 없다. (클래스안에 구조체가 있을 때)
-    
+
     private let localRealm = try! Realm()
     
     var count: Int {
         return localRealm.objects(Diary.self).count
     }
     
+    /// 읽어오기
     func fetch() -> Results<Diary> {
         return localRealm.objects(Diary.self).sorted(byKeyPath: "diaryDate", ascending: true)
     }
     
-    func fetchDate(date: Date) -> Results<Diary> {
-        return localRealm.objects(Diary.self).filter("diaryDate >= %@ AND diaryDate < %@", date, Date(timeInterval: 86400, since: date)) // NSPredicate (%@ : 매개변수 한자리)
+    /// 날짜 기준으로 읽어오기
+    func fetch(by date: Date) -> Results<Diary> {
+        return localRealm.objects(Diary.self).filter("diaryDate >= %@ AND diaryDate < %@", date, Date(timeInterval: 86400, since: date))
     }
     
+    /// 정렬
     func sort(by byKeyPath: String) -> Results<Diary> {
         return localRealm.objects(Diary.self).sorted(byKeyPath: byKeyPath, ascending: false)
     }
     
+    /// 필터
     func filter() -> Results<Diary> {
         return localRealm.objects(Diary.self).filter("diaryTitle CONTAINS[c] '날'")
     }
     
-    func update(item: Diary) {
-        try! localRealm.write {
-            item.favorite.toggle()
+    /// 작성
+    func write(item: Diary) {
+        do {
+            try localRealm.write {
+                localRealm.add(item)
+            }
+        } catch let error {
+            Logger.log(error, .error, "error occured")
         }
     }
     
+    /// 업데이트
+    func update(item: Diary, completion: @escaping ((Diary) -> ())) {
+        do {
+            try localRealm.write {
+                completion(item)
+            }
+            
+        } catch let error {
+            Logger.log(error, .error, "error occured")
+        }
+    }
+    
+    /// 삭제
     func delete(item: Diary) {
-        removeImageFromDocument(fileName: "\(item.objectId).jpg")
-        try! localRealm.write {
-            localRealm.delete(item)
+        do {
+            removeImageFromDocument(fileName: "\(item.objectId).jpg")
+            try localRealm.write {
+                localRealm.delete(item)
+            }
+            
+        } catch let error {
+            Logger.log(error, .error, "error occured")
         }
     }
     
+    /// 이미지 제거
     func removeImageFromDocument(fileName: String) {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return } // Document 경로
-        let fileURL = documentDirectory.appendingPathComponent(fileName) // 세부 경로. 이미지를 저장할 위치
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let fileURL = documentDirectory.appendingPathComponent(fileName)
         
         do {
             try FileManager.default.removeItem(at: fileURL)
             
         } catch let error {
-            Logger.log(error)
+            Logger.log(error, .error, "error occured")
         }
     }
 }
