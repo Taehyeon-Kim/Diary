@@ -29,20 +29,14 @@ final class DiaryCell: BaseTableViewCell {
     override func configureAttributes() {
         
         self.selectionStyle = .none
-        self.backgroundColor = [
-            UIColor(red: 189/255, green: 99/255, blue: 99/255, alpha: 1),
-            UIColor(red: 87/255, green: 82/255, blue: 118/255, alpha: 1),
-            UIColor(red: 82/255, green: 97/255, blue: 100/255, alpha: 1),
-            UIColor(red: 221/255, green: 222/255, blue: 162/255, alpha: 1),
-            UIColor(red: 66/255, green: 55/255, blue: 77/255, alpha: 1)
-        ].randomElement()
+        self.backgroundColor = .clear
         
         dashLineView.do {
             let lineDashPattern: [NSNumber]? = [6, 12, 18, 24]
 
             let shapeLayer = CAShapeLayer()
-            shapeLayer.strokeColor = UIColor.white.cgColor
-            shapeLayer.lineWidth = 3
+            shapeLayer.strokeColor = UIColor(red: 63/255, green: 78/255, blue: 79/255, alpha: 1).cgColor
+            shapeLayer.lineWidth = 1
             shapeLayer.lineDashPattern = lineDashPattern
             
             let path = CGMutablePath()
@@ -54,30 +48,26 @@ final class DiaryCell: BaseTableViewCell {
         }
 
         dateLabel.do {
-            $0.font = UIFont(name: "GamjaFlower-Regular", size: 13)
-            $0.textColor = .white
+            $0.font = UIFont(name: "GamjaFlower-Regular", size: 24)
+            $0.textColor = UIColor(red: 63/255, green: 78/255, blue: 79/255, alpha: 1)
             $0.textAlignment = .center
         }
         
         diaryTitleLabel.do {
-            $0.font = UIFont(name: "GamjaFlower-Regular", size: 15)
-            $0.textColor = .white
+            $0.font = UIFont(name: "GamjaFlower-Regular", size: 17)
+            $0.textColor = UIColor(red: 127/255, green: 132/255, blue: 135/255, alpha: 1)
         }
-        
-        photoContainerView.do {
-            $0.backgroundColor = .white
-            $0.layer.cornerRadius = 4
-        }
-        
+
         photoImageView.do {
             $0.backgroundColor = .systemGray6
             $0.contentMode = .scaleAspectFill
             $0.clipsToBounds = true
+            $0.layer.cornerRadius = 4
         }
         
         favoriteButton.do {
             $0.setImage(UIImage(systemName: "bookmark"), for: .normal)
-            $0.tintColor = .white
+            $0.tintColor = UIColor(red: 63/255, green: 78/255, blue: 79/255, alpha: 1)
         }
         
         maskingTapeImageView.do {
@@ -91,44 +81,39 @@ final class DiaryCell: BaseTableViewCell {
 
         contentView.addSubviews(dashLineView, dateLabel, diaryTitleLabel, photoContainerView, photoImageView, favoriteButton, maskingTapeImageView)
         
+        photoImageView.snp.makeConstraints {
+            $0.size.equalTo(60)
+            $0.leading.equalToSuperview().offset(12)
+            $0.top.equalToSuperview().offset(16)
+        }
+        
         dashLineView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(13)
+            $0.top.equalTo(photoImageView.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
 
         dateLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(22)
-            $0.leading.equalToSuperview().inset(16)
+            $0.top.equalTo(photoImageView.snp.top).offset(4)
+            $0.leading.equalTo(photoImageView.snp.trailing).offset(12)
         }
         
         diaryTitleLabel.snp.makeConstraints {
-            $0.leading.equalTo(dateLabel.snp.trailing).offset(8)
-            $0.centerY.equalTo(dateLabel.snp.centerY)
+            $0.top.equalTo(dateLabel.snp.bottom).offset(4)
+            $0.leading.equalTo(photoImageView.snp.trailing).offset(12)
         }
         
         favoriteButton.snp.makeConstraints {
+            $0.top.equalTo(photoImageView.snp.top).offset(2)
             $0.trailing.equalToSuperview().inset(10)
-            $0.centerY.equalTo(dateLabel.snp.centerY)
             $0.width.height.equalTo(16)
         }
-        
-        photoContainerView.snp.makeConstraints {
-            $0.top.equalTo(dateLabel.snp.bottom).offset(5)
-            $0.height.equalTo(60)
-            $0.bottom.equalToSuperview().inset(6)
-            $0.leading.equalToSuperview().offset(12)
-            $0.trailing.equalToSuperview().inset(70)
-        }
-        
-        photoImageView.snp.makeConstraints {
-            $0.edges.equalTo(photoContainerView).inset(2)
-        }
-        
+
         maskingTapeImageView.snp.makeConstraints {
             $0.leading.equalTo(photoImageView.snp.trailing).inset(45)
             $0.bottom.equalTo(photoImageView.snp.bottom).inset(8)
             $0.width.equalTo(90)
-            $0.height.equalTo(24)
+            $0.size.equalTo(24)
         }
     }
 }
