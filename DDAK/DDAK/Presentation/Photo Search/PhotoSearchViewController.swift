@@ -27,7 +27,6 @@ final class PhotoSearchViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchImage(query: "sea")
     }
     
     override func configureAttributes() {
@@ -53,10 +52,11 @@ extension PhotoSearchViewController {
         title = "이미지 검색"
         
         let xmarkButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissController))
-        xmarkButtonItem.tintColor = .black
+        xmarkButtonItem.tintColor = UIColor(red: 63/255, green: 78/255, blue: 79/255, alpha: 1)
         navigationItem.leftBarButtonItem = xmarkButtonItem
         
         let selectButtonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(selectImage))
+        selectButtonItem.tintColor = UIColor(red: 63/255, green: 78/255, blue: 79/255, alpha: 1)
         navigationItem.rightBarButtonItem = selectButtonItem
     }
     
@@ -105,7 +105,7 @@ extension PhotoSearchViewController: UICollectionViewDelegate, UICollectionViewD
         }
 
         cell.layer.borderWidth = selectedIndexPath == indexPath ? 4 : 0
-        cell.layer.borderColor = selectedIndexPath == indexPath ? UIColor.yellow.cgColor : nil
+        cell.layer.borderColor = selectedIndexPath == indexPath ? UIColor(red: 238/255, green: 105/255, blue: 131/255, alpha: 1).cgColor : nil
         
         cell.configure(withImage: imageStrings[indexPath.row])
         return cell

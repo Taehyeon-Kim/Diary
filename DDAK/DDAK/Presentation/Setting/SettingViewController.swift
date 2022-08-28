@@ -71,8 +71,11 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        cell.backgroundColor = .clear
+        cell.contentView.backgroundColor = .clear
         cell.selectionStyle = .none
         cell.textLabel?.text = dataSource[indexPath.row].rawValue
+        cell.textLabel?.font = UIFont(name: "GamjaFlower-Regular", size: 17)
         return cell
     }
     

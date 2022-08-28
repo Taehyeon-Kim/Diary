@@ -15,7 +15,7 @@ protocol DiaryRepositoryType {
     func fetch() -> Results<Diary>
     func fetch(by date: Date) -> Results<Diary>
     func sort(by byKeyPath: String) -> Results<Diary>
-    func filter() -> Results<Diary>
+    func filter(by keyword: String) -> Results<Diary>
     func write(photoURLString: String, diaryTitle: String, diaryContent: String, diaryDate: Date, createdAt: Date, completion: ((Diary) -> ())?)
     func update(item: Diary, completion: @escaping ((Diary) -> ()))
     func delete(item: Diary)
@@ -45,8 +45,8 @@ struct DiaryRepository: DiaryRepositoryType {
     }
     
     /// 필터
-    func filter() -> Results<Diary> {
-        return localRealm.objects(Diary.self).filter("diaryTitle CONTAINS[c] '날'")
+    func filter(by keyword: String) -> Results<Diary> {
+        return localRealm.objects(Diary.self).filter("diaryTitle CONTAINS[c] '\(keyword)'")
     }
     
     /// 작성

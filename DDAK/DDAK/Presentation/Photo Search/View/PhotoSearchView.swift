@@ -22,6 +22,7 @@ final class PhotoSearchView: BaseView {
         
         searchBar.do {
             $0.placeholder = "사진을 검색해보세요."
+            $0.backgroundImage = UIImage()
             $0.searchTextField.font = .systemFont(ofSize: 14)
             $0.searchTextField.backgroundColor = .clear
         }
@@ -30,10 +31,11 @@ final class PhotoSearchView: BaseView {
             $0.register(PhotoCell.self, forCellWithReuseIdentifier: PhotoCell.reuseIdentifier)
             
             let layout = UICollectionViewFlowLayout()
-            let spacing = 8.0
+            let spacing = 1.0
             let cellWidth = (UIScreen.main.bounds.width - spacing * 2) / 3
             layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
             layout.minimumInteritemSpacing = spacing
+            layout.minimumLineSpacing = spacing
             $0.collectionViewLayout = layout
         }
     }

@@ -101,7 +101,7 @@ extension ListViewController {
     }
     
     @objc func filterItemTapped() {
-        tasks = repository.filter()
+        tasks = repository.filter(by: "날")
     }
     
     @objc func transitionToWriteViewController() {
