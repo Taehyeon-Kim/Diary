@@ -44,15 +44,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func configureNavigationBar() {
         title = "설정"
-        
-        let backButton = UIButton(type: .custom)
-        backButton.tintColor = .black
-        backButton.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        backButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        let backButtonItem = UIBarButtonItem(customView: backButton)
-        
-        navigationItem.leftBarButtonItem = backButtonItem
     }
     
     @objc func backButtonTapped() {

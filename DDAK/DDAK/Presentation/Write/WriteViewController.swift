@@ -27,7 +27,14 @@ final class WriteViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print("Realm is located at:", realm.configuration.fileURL!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = true
     }
     
     override func configureAttributes() {

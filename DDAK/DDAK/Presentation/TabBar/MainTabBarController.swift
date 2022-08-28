@@ -25,9 +25,9 @@ extension MainTabBarController {
     
     private func configureTabBarController() {
         let contentViewControllers = [
-            ListViewController(),
-            PhotoSearchViewController(),
-            SettingViewController()
+            UINavigationController(rootViewController: ListViewController()),
+            UINavigationController(rootViewController: PhotoSearchViewController()),
+            UINavigationController(rootViewController: SettingViewController()),
         ]
         
         contentViewControllers.indices.forEach {

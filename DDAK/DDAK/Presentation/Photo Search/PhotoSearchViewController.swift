@@ -50,6 +50,8 @@ extension PhotoSearchViewController {
     }
     
     private func configureNavigationBar() {
+        title = "이미지 검색"
+        
         let xmarkButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissController))
         xmarkButtonItem.tintColor = .black
         navigationItem.leftBarButtonItem = xmarkButtonItem

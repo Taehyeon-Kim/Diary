@@ -38,8 +38,9 @@ final class ListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
         readDiary()
-//        listView.calendarView.reloadData()
     }
     
     override func configureAttributes() {
@@ -55,40 +56,33 @@ extension ListViewController {
     
     private func configureNavigationBar() {
         let label = UILabel()
-        label.textColor = .black
         label.text = "DDAK"
+        label.textColor = UIColor(red: 63/255, green: 78/255, blue: 79/255, alpha: 1)
         label.font = UIFont(name: "GamjaFlower-Regular", size: 28)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: label)
-        
-        let settingButton = UIButton(type: .custom)
-        settingButton.tintColor = .black
-        settingButton.setImage(UIImage(systemName: "gearshape"), for: .normal)
-        settingButton.addTarget(self, action: #selector(transitionToSettingViewController), for: .touchUpInside)
-        settingButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        let settingItem = UIBarButtonItem(customView: settingButton)
-        
+
         let sortButton = UIButton(type: .custom)
-        sortButton.tintColor = .black
-        sortButton.setImage(UIImage(systemName: "list.bullet"), for: .normal)
+        sortButton.setImage(UIImage(named: "icn.sort"), for: .normal)
         sortButton.addTarget(self, action: #selector(sortItemTapped), for: .touchUpInside)
         sortButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let sortItem = UIBarButtonItem(customView: sortButton)
         
         let filterButton = UIButton(type: .custom)
-        filterButton.tintColor = .black
-        filterButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        filterButton.setImage(UIImage(named: "icn.filter"), for: .normal)
         filterButton.addTarget(self, action: #selector(filterItemTapped), for: .touchUpInside)
         filterButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let filterItem = UIBarButtonItem(customView: filterButton)
         
         let writeButton = UIButton(type: .custom)
-        writeButton.tintColor = .black
-        writeButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        writeButton.setImage(UIImage(named: "icn.write"), for: .normal)
         writeButton.addTarget(self, action: #selector(transitionToWriteViewController), for: .touchUpInside)
         writeButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let writeItem = UIBarButtonItem(customView: writeButton)
 
-        navigationItem.rightBarButtonItems = [settingItem, sortItem, filterItem, writeItem]
+        navigationItem.rightBarButtonItems = [sortItem, filterItem, writeItem]
+        navigationItem.rightBarButtonItems?.forEach {
+            $0.customView?.tintColor = UIColor(red: 63/255, green: 78/255, blue: 79/255, alpha: 1)
+        }
         navigationItem.hidesBackButton = true
     }
     
