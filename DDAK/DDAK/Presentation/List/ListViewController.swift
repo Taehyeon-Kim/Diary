@@ -183,6 +183,14 @@ extension ListViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         return repository.fetch(by: date).count
     }
     
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
+        return [.darkGray]
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        return [.darkGray]
+    }
+    
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         return formatter.string(from: date) == "220907" ? "오프라인행사" : nil
     }

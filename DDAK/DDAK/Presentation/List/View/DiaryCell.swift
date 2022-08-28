@@ -19,7 +19,6 @@ final class DiaryCell: BaseTableViewCell {
     private let diaryTitleLabel = UILabel()
     private let photoContainerView = UIView()
     let photoImageView = UIImageView()
-    private let maskingTapeImageView = UIImageView()
     private let favoriteButton = UIButton()
     
     private lazy var dateFormatter = DateFormatter().then {
@@ -69,17 +68,11 @@ final class DiaryCell: BaseTableViewCell {
             $0.setImage(UIImage(systemName: "bookmark"), for: .normal)
             $0.tintColor = UIColor(red: 63/255, green: 78/255, blue: 79/255, alpha: 1)
         }
-        
-        maskingTapeImageView.do {
-            $0.clipsToBounds = true
-            $0.contentMode = .scaleAspectFill
-            $0.image = UIImage(named: "img_tape2")
-        }
     }
     
     override func configureLayout() {
 
-        contentView.addSubviews(dashLineView, dateLabel, diaryTitleLabel, photoContainerView, photoImageView, favoriteButton, maskingTapeImageView)
+        contentView.addSubviews(dashLineView, dateLabel, diaryTitleLabel, photoContainerView, photoImageView, favoriteButton)
         
         photoImageView.snp.makeConstraints {
             $0.size.equalTo(60)
@@ -107,13 +100,6 @@ final class DiaryCell: BaseTableViewCell {
             $0.top.equalTo(photoImageView.snp.top).offset(2)
             $0.trailing.equalToSuperview().inset(10)
             $0.width.height.equalTo(16)
-        }
-
-        maskingTapeImageView.snp.makeConstraints {
-            $0.leading.equalTo(photoImageView.snp.trailing).inset(45)
-            $0.bottom.equalTo(photoImageView.snp.bottom).inset(8)
-            $0.width.equalTo(90)
-            $0.size.equalTo(24)
         }
     }
 }
