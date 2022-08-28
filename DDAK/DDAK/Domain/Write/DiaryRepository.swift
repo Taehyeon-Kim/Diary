@@ -5,7 +5,7 @@
 //  Created by taekki on 2022/08/26.
 //
 
-import Foundation
+import UIKit
 
 import DDAK_Core
 import RealmSwift
@@ -16,7 +16,7 @@ protocol DiaryRepositoryType {
     func fetch(by date: Date) -> Results<Diary>
     func sort(by byKeyPath: String) -> Results<Diary>
     func filter() -> Results<Diary>
-    func write(item: Diary)
+    func write(photoURLString: String, diaryTitle: String, diaryContent: String, diaryDate: Date, createdAt: Date, completion: ((Diary) -> ())?)
     func update(item: Diary, completion: @escaping ((Diary) -> ()))
     func delete(item: Diary)
 }
@@ -50,11 +50,28 @@ struct DiaryRepository: DiaryRepositoryType {
     }
     
     /// 작성
-    func write(item: Diary) {
+    func write(
+        photoURLString: String,
+        diaryTitle: String,
+        diaryContent: String,
+        diaryDate: Date = Date(),
+        createdAt: Date = Date(),
+        completion: ((Diary) -> ())?
+    ) {
+        let diary = Diary(
+            photoURLString: photoURLString,
+            diaryTitle: diaryTitle,
+            diaryContent: diaryContent,
+            diaryDate: diaryDate,
+            createdAt: createdAt
+        )
+            
         do {
             try localRealm.write {
-                localRealm.add(item)
+                localRealm.add(diary)
+                completion?(diary)
             }
+            
         } catch let error {
             Logger.log(error, .error, "error occured")
         }
@@ -95,6 +112,19 @@ struct DiaryRepository: DiaryRepositoryType {
             
         } catch let error {
             Logger.log(error, .error, "error occured")
+        }
+    }
+    
+    /// 이미지 저장
+    public func saveImageToDocument(fileName: String, image: UIImage) {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let fileURL = documentDirectory.appendingPathComponent(fileName)
+        guard let data = image.jpegData(compressionQuality: 0.5) else { return }
+        
+        do {
+            try data.write(to: fileURL)
+        } catch let error {
+            print("file save err", error)
         }
     }
 }

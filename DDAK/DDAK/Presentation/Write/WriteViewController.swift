@@ -18,6 +18,7 @@ final class WriteViewController: BaseViewController {
     
     private let writeView = WriteView()
 
+    private let repository: DiaryRepositoryType = DiaryRepository()
     private let realm = try! Realm()
     private var photoURLString: String?
     
@@ -27,8 +28,6 @@ final class WriteViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("Realm is located at:", realm.configuration.fileURL!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,29 +128,21 @@ extension WriteViewController {
             self.presentAlert(title: "제목을 입력해주세요")
             return
         }
-        
-        let diary = Diary(
-            photoURLString: photoURLString,
+
+        repository.write(
+            photoURLString: photoURLString ?? "",
             diaryTitle: title,
             diaryContent: writeView.contentTextView.text,
             diaryDate: Date(),
             createdAt: Date()
-        )
-        
-        do {
-            try realm.write {
-                realm.add(diary)
-
-                if let image = writeView.photoImageView.image {
-                    saveImageToDocument(fileName: "\(diary.objectId).jpg", image: image)
-                }
-                
-                self.presentAlert(title: "📩 성공적으로 저장되었어요.") { _ in
-                    self.navigationController?.popViewController(animated: true)
-                }
+        ) { diary in
+            if let image = self.writeView.photoImageView.image {
+                self.saveImageToDocument(fileName: "\(diary.objectId).jpg", image: image)
             }
-        } catch let error {
-            Logger.log(error)
+            
+            self.presentAlert(title: "📩 성공적으로 저장되었어요.") { _ in
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 }
