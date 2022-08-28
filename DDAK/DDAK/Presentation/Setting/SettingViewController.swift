@@ -33,6 +33,8 @@ final class SettingViewController: BaseViewController {
     }
 
     override func configureAttributes() {
+        super.configureAttributes()
+        
         configureNavigationBar()
         configureTableView()
     }

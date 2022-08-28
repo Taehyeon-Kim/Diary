@@ -31,6 +31,8 @@ final class PhotoSearchViewController: BaseViewController {
     }
     
     override func configureAttributes() {
+        super.configureAttributes()
+        
         configureCollectionView()
         configureSearchBar()
         configureNavigationBar()

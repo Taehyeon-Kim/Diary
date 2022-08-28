@@ -43,6 +43,8 @@ final class ListViewController: BaseViewController {
     }
     
     override func configureAttributes() {
+        super.configureAttributes()
+        
         configureNavigationBar()
         configureTableView()
         configureCalendar()

@@ -31,6 +31,8 @@ final class WriteViewController: BaseViewController {
     }
     
     override func configureAttributes() {
+        super.configureAttributes()
+        
         configureNavigationBar()
         writeView.selectPhotoButton.addTarget(self, action: #selector(selectPhotoButtonTapped), for: .touchUpInside)
         writeView.titleTextField.delegate = self

@@ -28,6 +28,8 @@ open class BaseViewController: UIViewController {
         Logger.log(type(of: self), .info, "deinit")
     }
 
-    open func configureAttributes() {}
+    open func configureAttributes() {
+        view.backgroundColor = UIColor(red: 249/255, green: 245/255, blue: 235/255, alpha: 1)
+    }
     open func configureLayout() {}
 }
