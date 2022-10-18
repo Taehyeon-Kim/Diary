@@ -16,7 +16,7 @@ protocol DiaryRepositoryType {
     func fetch(by date: Date) -> Results<Diary>
     func sort(by byKeyPath: String) -> Results<Diary>
     func filter(by keyword: String) -> Results<Diary>
-    func write(photoURLString: String, diaryTitle: String, diaryContent: String, diaryDate: Date, createdAt: Date, completion: ((Diary) -> ())?)
+    func write(interface: DiaryInterface)
     func update(item: Diary, completion: @escaping ((Diary) -> ()))
     func delete(item: Diary)
 }
@@ -50,26 +50,12 @@ struct DiaryRepository: DiaryRepositoryType {
     }
     
     /// 작성
-    func write(
-        photoURLString: String,
-        diaryTitle: String,
-        diaryContent: String,
-        diaryDate: Date = Date(),
-        createdAt: Date = Date(),
-        completion: ((Diary) -> ())?
-    ) {
-        let diary = Diary(
-            photoURLString: photoURLString,
-            diaryTitle: diaryTitle,
-            diaryContent: diaryContent,
-            diaryDate: diaryDate,
-            createdAt: createdAt
-        )
+    func write(interface: DiaryInterface) {
+        let diary = Diary(interface: interface)
             
         do {
             try localRealm.write {
                 localRealm.add(diary)
-                completion?(diary)
             }
             
         } catch let error {

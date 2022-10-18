@@ -9,7 +9,18 @@ import Foundation
 
 import RealmSwift
 
-class Diary: Object {
+protocol DiaryInterface: AnyObject {
+    var photoURLString: String? { get set }
+    var diaryTitle: String { get set }
+    var diaryContent: String? { get set }
+    var diaryDate: Date { get set }
+    var createdAt: Date { get set }
+    var favorite: Bool { get set }
+}
+
+class Diary: Object, DiaryInterface {
+    
+    var interface: DiaryInterface?
     
     // PK(필수): Int, UUID, ObjectID
     @Persisted(primaryKey: true) var objectId: ObjectId
@@ -20,6 +31,16 @@ class Diary: Object {
     @Persisted var createdAt = Date()
     @Persisted var favorite: Bool
     
+    convenience init(interface: DiaryInterface) {
+        self.init(
+            photoURLString: interface.photoURLString,
+            diaryTitle: interface.diaryTitle,
+            diaryContent: interface.diaryContent,
+            diaryDate: interface.diaryDate,
+            createdAt: interface.createdAt
+        )
+        self.interface = interface
+    }
     
     convenience init(
         photoURLString: String?,
