@@ -389,6 +389,7 @@
 		BDCEFB8F28B13BB100EE0439 = {
 			isa = PBXGroup;
 			children = (
+				BDA5FD8F28FEB59E00B4E3DD /* DDAK.docc */,
 				BDCEFB9A28B13BB100EE0439 /* DDAK */,
 				BD14BCD928B2847A00D8C29C /* DDAK-Core */,
 				BD14BD0128B29E0200D8C29C /* DDAK-Network */,
@@ -415,7 +416,6 @@
 				BD117D1028B3EF4E00A103FA /* Domain */,
 				BDCEFBB228B13F9A00EE0439 /* Presentation */,
 				BDCEFBB028B13E9500EE0439 /* Resource */,
-				BDA5FD8F28FEB59E00B4E3DD /* DDAK.docc */,
 			);
 			path = DDAK;
 			sourceTree = "<group>";
@@ -987,6 +987,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W7P3R7ZL78;
+				DOCC_HOSTING_BASE_PATH = "SeSAC-Diary";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDAK/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1018,6 +1019,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W7P3R7ZL78;
+				DOCC_HOSTING_BASE_PATH = "SeSAC-Diary";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DDAK/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
